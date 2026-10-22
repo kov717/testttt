@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 900" role="img" aria-label="Стилизованное горное озеро Таджикистана">
+<defs>
+ <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#131c27"/><stop offset=".62" stop-color="#243544"/><stop offset="1" stop-color="#0c1014"/></linearGradient>
+ <radialGradient id="sun"><stop stop-color="#e3ad67" stop-opacity=".48"/><stop offset="1" stop-color="#e3ad67" stop-opacity="0"/></radialGradient>
+ <linearGradient id="peak" x1="0" y1="0" x2=".9" y2="1"><stop stop-color="#a1acae"/><stop offset=".44" stop-color="#596a77"/><stop offset="1" stop-color="#192d38"/></linearGradient>
+ <linearGradient id="water" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#5aaba5"/><stop offset=".55" stop-color="#285d69"/><stop offset="1" stop-color="#0b202a"/></linearGradient>
+ <linearGradient id="shade" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#0c0a07" stop-opacity="0"/><stop offset="1" stop-color="#0c0a07" stop-opacity=".88"/></linearGradient>
+</defs>
+<rect width="1180" height="900" fill="url(#sky)"/><circle cx="825" cy="210" r="270" fill="url(#sun)"/><circle cx="817" cy="219" r="56" fill="#e9bf85" opacity=".38"/>
+<path d="M0 500L122 398 208 466 364 251 516 409 666 186 796 372 902 268 1088 474 1180 424V900H0Z" fill="#283948"/>
+<path d="M0 605L165 441 281 523 455 264 599 482 781 308 897 439 1018 319 1180 530V900H0Z" fill="url(#peak)"/>
+<path d="M362 345L455 264 546 399 493 374 459 332 431 365 400 363Z M715 369L781 308 844 399 794 377 774 345 744 379Z M974 368L1018 319 1074 409 1038 386 1013 356Z" fill="#d7d7c9" opacity=".8"/>
+<path d="M0 602Q140 574 295 611T625 606T922 581T1180 614V900H0Z" fill="#1b3640"/>
+<path d="M0 622Q240 600 438 627T782 627T1180 621V900H0Z" fill="url(#water)"/>
+<path d="M40 676Q245 660 428 676T790 665T1130 678M120 728Q338 710 522 722T1030 719" fill="none" stroke="#b4d1c2" stroke-width="3" opacity=".24"/>
+<path d="M0 720Q131 618 218 626L145 752 0 799ZM1180 709Q1052 621 979 635L1033 750 1180 813Z" fill="#19302e"/>
+<path d="M0 0H1180V900H0Z" fill="url(#shade)"/>
+<text x="64" y="789" font-family="Arial, sans-serif" font-size="29" font-weight="700" letter-spacing="10" fill="#f0e6d1" opacity=".85">TAJIKISTAN</text>
+<text x="66" y="831" font-family="Arial, sans-serif" font-size="18" letter-spacing="7" fill="#e0ac69" opacity=".84">FANN MOUNTAINS · COOLTOUR.KZ</text>
+</svg>
