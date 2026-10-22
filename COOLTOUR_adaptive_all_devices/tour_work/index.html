@@ -1,0 +1,1315 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="COOLTOUR.KZ — путешествия по Казахстану, Узбекистану, Кыргызстану и Туркменистану. 14 идей для маршрутов: города Шёлкового пути, озёра, горы и пустыни. Подбор программы и стоимости через WhatsApp." /><meta name="theme-color" content="#0c0a07" /><meta property="og:title" content="COOLTOUR.KZ — откройте Центральную Азию" /><meta property="og:description" content="Четыре страны, четырнадцать маршрутов. Подберём программу путешествия под ваши даты." /><meta property="og:type" content="website" />
+<title>COOLTOUR.KZ — путешествия по Центральной Азии</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@1,400;1,500;1,600&family=Unbounded:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+/* ============ ТОКЕНЫ И БАЗА ============ */
+:root{
+  --ink:#0c0a07; --ink2:#121009; --coal:#1a1610; --coal2:#241e14;
+  --line:rgba(237,228,211,.12); --sand:#ede4d3; --sand2:#a89d85;
+  --gold:#e2a24b; --clay:#c97c31; --lake:#5fa8a0;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --d:"Unbounded",system-ui,sans-serif; --b:"Manrope",system-ui,sans-serif; --s:"Playfair Display",Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--sand);font-family:var(--b);-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+button{font-family:var(--b);cursor:pointer;background:none;border:none;color:inherit}
+ul{list-style:none}
+::selection{background:var(--gold);color:var(--ink)}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:var(--ink)}
+::-webkit-scrollbar-thumb{background:#2e281c;border-radius:8px}
+.container{max-width:1440px;margin:0 auto;padding:0 20px}
+@media(min-width:768px){.container{padding:0 40px}}
+.d{font-family:var(--d)}
+.gold{color:var(--gold)}
+.outline{color:transparent;-webkit-text-stroke:1px rgba(237,228,211,.5)}
+.outline-gold{color:transparent;-webkit-text-stroke:1px rgba(226,162,75,.7)}
+.serif{font-family:var(--s);font-style:italic;text-transform:none;letter-spacing:0;color:var(--gold)}
+.section{padding:90px 0}
+@media(min-width:768px){.section{padding:140px 0}}
+.sec{scroll-margin-top:90px}
+.ov{display:flex;align-items:center;gap:12px;font-size:12px;font-weight:600;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.ov::before{content:"";width:40px;height:1px;background:var(--gold)}
+.h2{font-family:var(--d);font-weight:800;text-transform:uppercase;line-height:1.02;font-size:clamp(32px,5vw,58px)}
+.mut{color:var(--sand2)}
+
+/* зерно */
+.grain{position:fixed;inset:-50%;width:200%;height:200%;pointer-events:none;z-index:80;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grain .6s steps(4) infinite}
+@keyframes grain{0%{transform:translate(0,0)}25%{transform:translate(-2%,1%)}50%{transform:translate(1%,-2%)}75%{transform:translate(-1%,2%)}100%{transform:translate(2%,-1%)}}
+
+/* появление при скролле */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+
+/* кнопки */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;padding:16px 28px;font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;transition:.3s;border:1px solid transparent;white-space:nowrap}
+.btn svg{width:16px;height:16px;transition:transform .3s}
+.btn-gold{background:var(--gold);color:var(--ink)}
+.btn-gold:hover{background:var(--sand)}
+.btn-gold:hover svg{transform:translate(2px,-2px)}
+.btn-ghost{border-color:rgba(237,228,211,.3);color:var(--sand);backdrop-filter:blur(4px)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.btn-light{background:var(--sand);color:var(--ink);padding:10px 20px;font-size:12px}
+.btn-light:hover{background:var(--gold)}
+.icon-btn{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);color:var(--sand);transition:.3s}
+.icon-btn:hover{border-color:var(--gold);color:var(--gold)}
+.icon-btn svg{width:20px;height:20px}
+
+/* ============ ШАПКА ============ */
+.nav{position:fixed;inset:0 0 auto;z-index:50;transition:.5s;border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(12,10,7,.85);backdrop-filter:blur(16px);border-color:var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;height:64px}
+@media(min-width:768px){.nav-inner{height:80px}}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-mark{display:grid;place-items:center;width:36px;height:36px;border-radius:9px;background:var(--gold);color:var(--ink);transition:transform .5s}
+.brand:hover .brand-mark{transform:rotate(-12deg)}
+.brand-mark svg{width:20px;height:20px}
+.brand-text{font-family:var(--d);font-size:13px;font-weight:700;letter-spacing:.14em}
+@media(min-width:768px){.brand-text{font-size:16px}}
+.nav-links{display:none;gap:32px}
+@media(min-width:1024px){.nav-links{display:flex}}
+.nav-links a{position:relative;font-size:13px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--sand2);transition:.3s}
+.nav-links a:hover{color:var(--sand)}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:1px;background:var(--gold);transition:.3s}
+.nav-links a:hover::after{width:100%}
+.nav-right{display:flex;align-items:center;gap:10px}
+.nav-cta{display:none}
+@media(min-width:1024px){.nav-cta{display:inline-flex}}
+.nav-burger{display:grid}
+@media(min-width:1024px){.nav-burger{display:none}}
+.lang{display:flex;align-items:center;border:1px solid var(--line);border-radius:999px;padding:3px;background:rgba(12,10,7,.6);backdrop-filter:blur(8px)}
+.lang svg{width:14px;height:14px;color:var(--gold);margin:0 4px;display:none}
+@media(min-width:640px){.lang svg{display:block}}
+.lang button{padding:6px 10px;border-radius:999px;font-size:10px;font-weight:800;letter-spacing:.1em;color:var(--sand2);transition:.3s}
+.lang button:hover{color:var(--sand)}
+.lang button.on{background:var(--gold);color:var(--ink)}
+
+/* мобильное меню */
+.mm{position:fixed;inset:0;z-index:60;background:rgba(12,10,7,.97);backdrop-filter:blur(24px);display:flex;flex-direction:column;opacity:0;pointer-events:none;transition:opacity .35s}
+.mm.open{opacity:1;pointer-events:auto}
+.mm-head{display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:64px}
+.mm-nav{flex:1;display:flex;flex-direction:column;justify-content:center;padding:0 32px;gap:8px}
+.mm-nav a{font-family:var(--d);font-weight:700;text-transform:uppercase;font-size:clamp(28px,7vw,44px);line-height:1.15;opacity:0;transform:translateY(30px);transition:.5s var(--ease)}
+.mm.open .mm-nav a{opacity:1;transform:none}
+.mm-nav a span{color:var(--gold);font-size:14px;margin-right:16px}
+.mm-nav a:hover{color:var(--gold)}
+.mm-foot{padding:0 32px 40px;display:flex;flex-direction:column;gap:14px}
+.mm-foot p{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--sand2)}
+
+/* ============ HERO ============ */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;overflow:hidden}
+.hero-bg{position:absolute;inset:0;will-change:transform}
+.hero-bg img{width:100%;height:100%;object-fit:cover;animation:kb 14s var(--ease) forwards}
+@keyframes kb{from{transform:scale(1.14) translateY(-1.5%)}to{transform:scale(1)}}
+.hero-g1,.hero-g2{position:absolute;inset:0;pointer-events:none}
+.hero-g1{background:linear-gradient(to bottom,rgba(12,10,7,.7),rgba(12,10,7,.25),var(--ink))}
+.hero-g2{background:linear-gradient(to right,rgba(12,10,7,.6),transparent)}
+.side-label{position:absolute;top:50%;transform:translateY(-50%);z-index:2;display:none;pointer-events:none;writing-mode:vertical-rl;font-size:11px;font-weight:500;letter-spacing:.5em;text-transform:uppercase;color:var(--sand2)}
+@media(min-width:1024px){.side-label{display:block}}
+.side-r{right:24px}
+.side-l{left:24px;transform:translateY(-50%) rotate(180deg)}
+.hero-content{position:relative;z-index:3;flex:1;display:flex;flex-direction:column;justify-content:center;padding-top:110px}
+@media(min-width:768px){.hero-content{padding-top:128px}}
+.hero-title{display:block}
+.hl{display:block;overflow:hidden}
+.hl-in{display:block;font-family:var(--d);font-weight:800;text-transform:uppercase;line-height:.95;transform:translateY(110%);animation:up 1.1s var(--ease) forwards}
+@keyframes up{to{transform:none}}
+.h-a{font-size:clamp(38px,9.2vw,140px);animation-delay:.55s}
+.h-b{font-size:clamp(44px,10.6vw,160px);animation-delay:.7s}
+.h-b .dot{-webkit-text-stroke:0;color:var(--gold)}
+.hero-bottom{display:flex;flex-direction:column;gap:32px;margin-top:32px}
+@media(min-width:768px){.hero-bottom{flex-direction:row;align-items:flex-end;justify-content:space-between;margin-top:48px}}
+.hero-p{max-width:440px;font-size:16px;line-height:1.6;color:rgba(237,228,211,.8)}
+@media(min-width:768px){.hero-p{font-size:18px}}
+.hero-cta{display:flex;flex-wrap:wrap;gap:16px}
+.hero-stats{position:relative;z-index:3;margin-top:56px;border-top:1px solid rgba(237,228,211,.15)}
+.stats-grid{display:grid;grid-template-columns:repeat(2,1fr)}
+@media(min-width:768px){.stats-grid{grid-template-columns:repeat(4,1fr)}}
+.stat{display:flex;flex-direction:column;gap:4px;padding:24px 0}
+@media(min-width:768px){.stat{padding:32px 0}}
+.stat:nth-child(odd){padding-right:16px}
+.stat+.stat{border-left:1px solid rgba(237,228,211,.15);padding-left:20px}
+.stat:nth-child(3){border-left:none;padding-left:0;border-top:1px solid rgba(237,228,211,.15)}
+.stat:nth-child(4){border-top:1px solid rgba(237,228,211,.15)}
+@media(min-width:768px){.stat:nth-child(3){border-top:none;border-left:1px solid rgba(237,228,211,.15);padding-left:32px}.stat:nth-child(4){border-top:none}}
+@media(min-width:768px){.stat+.stat{padding-left:32px}}
+.stat-v{font-family:var(--d);font-size:24px;font-weight:700;color:var(--gold)}
+@media(min-width:768px){.stat-v{font-size:30px}}
+.stat-l{font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--sand2)}
+.scroll-hint{position:absolute;left:50%;bottom:120px;transform:translateX(-50%);z-index:3;display:none;flex-direction:column;align-items:center;gap:12px;color:var(--sand2)}
+@media(min-width:1024px){.scroll-hint{display:flex}}
+.scroll-hint svg{width:16px;height:16px}
+.drop{display:block;width:1px;height:40px;background:linear-gradient(to bottom,var(--gold),transparent);animation:drop 2.2s var(--ease) infinite}
+@keyframes drop{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ============ БЕГУЩАЯ СТРОКА ============ */
+.marquee{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--coal);padding:16px 0}
+@media(min-width:768px){.marquee{padding:24px 0}}
+.mq-track{display:flex;width:max-content;animation:mq 36s linear infinite}
+.mq-track:hover{animation-play-state:paused}
+@keyframes mq{to{transform:translateX(-50%)}}
+.mq-item{display:flex;align-items:center;gap:24px;padding-right:24px;flex-shrink:0}
+@media(min-width:768px){.mq-item{gap:40px;padding-right:40px}}
+.mq-item span{font-family:var(--d);font-size:18px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;white-space:nowrap}
+@media(min-width:768px){.mq-item span{font-size:24px}}
+.mq-item svg{width:20px;height:20px;color:var(--gold)}
+@media(min-width:768px){.mq-item svg{width:28px;height:28px}}
+
+/* ============ ТУРЫ ============ */
+.sec-head{display:flex;flex-direction:column;gap:32px}
+@media(min-width:768px){.sec-head{flex-direction:row;align-items:flex-end;justify-content:space-between}}
+.sec-p{max-width:400px;font-size:14px;line-height:1.7;color:rgba(237,228,211,.6)}
+@media(min-width:768px){.sec-p{font-size:16px}}
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin-top:40px}
+.filter{border:1px solid var(--line);border-radius:999px;padding:10px 20px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--sand2);transition:.3s}
+.filter:hover{border-color:rgba(237,228,211,.4);color:var(--sand)}
+.filter.on{border-color:var(--gold);background:var(--gold);color:var(--ink)}
+.grid-tours{display:grid;gap:24px;margin-top:40px}
+@media(min-width:640px){.grid-tours{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.grid-tours{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--coal);border:1px solid var(--line);border-radius:16px;overflow:hidden;cursor:pointer;display:flex;flex-direction:column;transition:border-color .3s;animation:pop .6s var(--ease) both}
+@keyframes pop{from{opacity:0;transform:translateY(30px)}}
+.card:hover{border-color:rgba(226,162,75,.5)}
+.card-img{position:relative;aspect-ratio:16/10;overflow:hidden}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
+.card:hover .card-img img{transform:scale(1.1)}
+.card-img::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,var(--coal),transparent 55%,rgba(12,10,7,.3))}
+.chip-region{position:absolute;top:16px;left:16px;z-index:2;background:rgba(12,10,7,.6);border:1px solid rgba(237,228,211,.2);backdrop-filter:blur(8px);border-radius:999px;padding:6px 12px;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase}
+.chip-dur{position:absolute;top:16px;right:16px;z-index:2;background:var(--gold);color:var(--ink);border-radius:999px;padding:6px 12px;font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase}
+.card-num{position:absolute;right:16px;bottom:16px;z-index:2;writing-mode:vertical-rl;font-size:10px;font-weight:600;letter-spacing:.4em;color:rgba(237,228,211,.6);display:none}
+@media(min-width:768px){.card-num{display:block}}
+.card-body{display:flex;flex:1;flex-direction:column;gap:20px;padding:24px}
+.card-title{font-family:var(--d);font-size:18px;font-weight:700;text-transform:uppercase;line-height:1.3;transition:color .3s}
+.card:hover .card-title{color:var(--gold)}
+@media(min-width:768px){.card-title{font-size:20px}}
+.card-tag{font-size:14px;line-height:1.6;color:rgba(237,228,211,.6);margin-top:8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.params{grid-column:1/-1;display:grid;grid-template-columns:1fr;gap:12px 10px;border-top:1px solid var(--line);padding-top:16px;font-size:12px;font-weight:600;color:rgba(237,228,211,.75)}
+.params span{display:flex;align-items:center;gap:8px;min-width:0}
+.params svg{width:14px;height:14px;flex-shrink:0;color:var(--gold)}
+.diff{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--sand2)}
+.dots{display:flex;gap:4px}
+.dots i{width:6px;height:6px;border-radius:50%;background:rgba(237,228,211,.2)}
+.dots i.on{background:var(--gold)}
+.card-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:16px}
+.from{font-size:10px;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--sand2)}
+.price{font-family:var(--d);font-size:20px;font-weight:700;color:var(--gold)}
+.arrow-btn{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);transition:.3s}
+.arrow-btn svg{width:20px;height:20px;transition:transform .3s}
+.card:hover .arrow-btn{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.card:hover .arrow-btn svg{transform:rotate(45deg)}
+
+/* ============ МОДАЛКА ============ */
+.modal{position:fixed;inset:0;z-index:70;background:rgba(12,10,7,.8);backdrop-filter:blur(8px);display:none;align-items:flex-end;justify-content:center;animation:fade .3s}
+.modal.open{display:flex}
+@keyframes fade{from{opacity:0}}
+@media(min-width:768px){.modal{align-items:center;padding:32px}}
+.modal-card{position:relative;width:100%;max-width:1024px;max-height:92svh;overflow-y:auto;background:var(--ink2);border:1px solid var(--line);border-radius:24px 24px 0 0;animation:mup .5s var(--ease)}
+@keyframes mup{from{opacity:0;transform:translateY(60px)}}
+@media(min-width:768px){.modal-card{border-radius:24px}}
+.modal-close{position:absolute;top:16px;right:16px;z-index:2;background:rgba(12,10,7,.7);backdrop-filter:blur(8px)}
+.modal-grid{display:grid}
+@media(min-width:768px){.modal-grid{grid-template-columns:1.05fr 1fr}}
+.modal-img{position:relative;height:240px;overflow:hidden}
+@media(min-width:768px){.modal-img{height:auto;min-height:100%}}
+.modal-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.modal-img::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,var(--ink2),rgba(12,10,7,.2),transparent)}
+@media(min-width:768px){.modal-img::after{background:linear-gradient(to right,var(--ink2),rgba(12,10,7,.2),transparent)}}
+.modal-img-cap{position:absolute;left:20px;right:20px;bottom:20px;z-index:2}
+@media(min-width:768px){.modal-img-cap{left:32px;bottom:32px}}
+.m-region{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+.m-region svg{width:14px;height:14px}
+.m-title{font-family:var(--d);font-size:24px;font-weight:700;text-transform:uppercase;line-height:1.15;margin-top:8px}
+@media(min-width:768px){.m-title{font-size:30px}}
+.modal-body{padding:24px}
+@media(min-width:768px){.modal-body{padding:32px}}
+.m-tag{font-size:14px;line-height:1.7;color:rgba(237,228,211,.75)}
+.m-params{display:grid;grid-template-columns:1fr;gap:20px 16px;background:var(--coal);border:1px solid var(--line);border-radius:16px;padding:20px;margin-top:24px}
+.kv label{display:block;font-size:11px;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--sand2);margin-bottom:6px}
+.kv .v{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600}
+.kv svg{width:16px;height:16px;flex-shrink:0;color:var(--gold)}
+.bars{display:flex;gap:4px}
+.bars i{width:28px;height:6px;border-radius:999px;background:rgba(237,228,211,.15)}
+.bars i.on{background:var(--gold)}
+.bars-row{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600}
+.m-route{display:flex;align-items:center;gap:12px;margin-top:16px;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--sand2)}
+.m-route svg{width:16px;height:16px;color:var(--gold)}
+.m-h{font-size:11px;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin:24px 0 12px}
+.hl-list li{display:flex;gap:10px;font-size:14px;color:rgba(237,228,211,.85);padding:4px 0}
+.hl-list svg{width:16px;height:16px;flex-shrink:0;color:var(--gold);margin-top:2px}
+.it-day{border-left:1px solid var(--line);padding-left:16px;margin-bottom:16px}
+.it-day:last-child{margin-bottom:0}
+.it-t{font-family:var(--d);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.03em}
+.it-t b{color:var(--gold);font-weight:600}
+.it-p{font-size:13px;line-height:1.65;color:rgba(237,228,211,.65);margin-top:4px}
+.inc{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.inc span{display:flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--coal);border-radius:999px;padding:6px 12px;font-size:11px;font-weight:600;color:rgba(237,228,211,.8)}
+.inc svg{width:12px;height:12px;color:var(--lake)}
+.price-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;background:rgba(226,162,75,.1);border-radius:16px;padding:20px;margin-top:28px}
+.price-cta .from{margin-bottom:4px}
+.price-big{font-family:var(--d);font-size:24px;font-weight:700;color:var(--gold)}
+
+/* ============ ПРИРОДА ============ */
+.nature{background:var(--ink2);border-top:1px solid var(--line)}
+.nat-grid{display:grid;gap:64px}
+@media(min-width:1024px){.nat-grid{grid-template-columns:1fr 1.1fr;gap:80px}}
+.nat-p{font-size:15px;line-height:1.75;color:rgba(237,228,211,.7);margin-top:20px}
+@media(min-width:768px){.nat-p{font-size:16px}}
+.feat{display:flex;gap:20px;padding:24px 0;border-top:1px solid var(--line);transition:background .3s}
+.feat:last-child{border-bottom:1px solid var(--line)}
+.feat:hover{background:rgba(26,22,16,.5)}
+.feat-ic{display:grid;place-items:center;width:48px;height:48px;flex-shrink:0;border:1px solid var(--line);border-radius:12px;color:var(--gold);transition:.3s}
+.feat:hover .feat-ic{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.feat-ic svg{width:20px;height:20px}
+.feat-num{margin-left:auto;font-family:var(--d);font-size:14px;color:rgba(237,228,211,.25)}
+.feat h3{font-family:var(--d);font-size:16px;font-weight:600;text-transform:uppercase;letter-spacing:.03em}
+.feat p{font-size:14px;line-height:1.65;color:rgba(237,228,211,.6);margin-top:6px}
+.collage{position:relative;min-height:560px}
+@media(min-width:1024px){.collage{min-height:760px}}
+.col-a{position:absolute;left:0;top:32px;width:78%;border-radius:16px;overflow:hidden;border:1px solid var(--line);will-change:transform}
+.col-b{position:absolute;right:0;bottom:24px;width:52%;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 60px rgba(0,0,0,.5);will-change:transform;transform:rotate(2deg)}
+.col-a img,.col-b img{aspect-ratio:4/5;width:100%;object-fit:cover}
+.col-a::after,.col-b::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(12,10,7,.6),transparent 60%)}
+.col-cap{position:absolute;left:16px;bottom:16px;z-index:2;font-size:11px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:rgba(237,228,211,.9)}
+.chip-float{position:absolute;top:0;right:8px;background:rgba(26,22,16,.9);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:16px;padding:20px;z-index:3}
+@media(min-width:768px){.chip-float{right:24px;top:16px}}
+.chip-float b{display:block;font-family:var(--d);font-size:30px;font-weight:800;color:var(--gold)}
+.chip-float span{display:block;max-width:150px;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;line-height:1.5;color:var(--sand2);margin-top:4px}
+.nat-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-top:80px}
+@media(min-width:1024px){.nat-stats{grid-template-columns:repeat(4,1fr)}}
+.ns-cell{background:var(--ink2);padding:24px;transition:background .3s}
+@media(min-width:768px){.ns-cell{padding:32px}}
+.ns-cell:hover{background:var(--coal)}
+.ns-v{font-family:var(--d);font-size:22px;font-weight:800}
+@media(min-width:768px){.ns-v{font-size:32px}}
+.ns-v em{font-style:normal;font-size:15px;font-weight:500;color:var(--gold);margin-left:6px}
+.ns-l{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;line-height:1.55;color:var(--sand2);margin-top:8px}
+
+/* ============ FAQ ============ */
+.faq-grid{display:grid;gap:48px}
+@media(min-width:1024px){.faq-grid{grid-template-columns:1fr 1.4fr;gap:96px}}
+.faq-p{max-width:320px;font-size:14px;line-height:1.7;color:rgba(237,228,211,.6);margin-top:24px}
+.faq-item{border-top:1px solid var(--line)}
+.faq-item:last-child{border-bottom:1px solid var(--line)}
+.faq-q{display:flex;align-items:center;gap:20px;width:100%;padding:24px 0;text-align:left}
+.faq-q .n{font-family:var(--d);font-size:14px;color:rgba(237,228,211,.3);flex-shrink:0}
+.faq-q .t{flex:1;font-size:16px;font-weight:600;transition:color .3s}
+@media(min-width:768px){.faq-q .t{font-size:18px}}
+.faq-q:hover .t,.faq-item.open .faq-q .t{color:var(--gold)}
+.faq-plus{display:grid;place-items:center;width:36px;height:36px;flex-shrink:0;border:1px solid var(--line);border-radius:50%;color:var(--sand2);transition:.3s}
+.faq-plus svg{width:16px;height:16px;transition:.3s}
+.faq-q:hover .faq-plus{border-color:rgba(237,228,211,.4)}
+.faq-item.open .faq-plus{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.faq-item.open .faq-plus svg{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .45s var(--ease)}
+.faq-a p{padding:0 32px 28px 44px;font-size:14px;line-height:1.7;color:rgba(237,228,211,.65)}
+@media(min-width:768px){.faq-a p{font-size:15px}}
+
+/* ============ КОНТАКТЫ ============ */
+.footer{position:relative;background:var(--ink2);border-top:1px solid var(--line);overflow:hidden}
+.f-bg{position:absolute;inset:0 0 auto;height:256px;opacity:.25;pointer-events:none}
+.f-bg img{width:100%;height:100%;object-fit:cover;-webkit-mask-image:linear-gradient(to bottom,black,transparent);mask-image:linear-gradient(to bottom,black,transparent)}
+.f-inner{position:relative;padding-top:96px}
+@media(min-width:768px){.f-inner{padding-top:140px}}
+.f-h2{font-family:var(--d);font-weight:900;text-transform:uppercase;line-height:.95;font-size:clamp(40px,11vw,118px)}
+.f-row{display:flex;flex-direction:column;gap:32px;margin-top:40px}
+@media(min-width:768px){.f-row{flex-direction:row;align-items:center;justify-content:space-between}}
+.phone-b{display:flex;align-items:center;gap:20px}
+.phone-ic{display:grid;place-items:center;width:64px;height:64px;flex-shrink:0;border:1px solid rgba(226,162,75,.5);background:rgba(226,162,75,.1);border-radius:50%;color:var(--gold);transition:.3s}
+.phone-b:hover .phone-ic{background:var(--gold);color:var(--ink)}
+@media(min-width:768px){.phone-ic{width:80px;height:80px}}
+.phone-ic svg{width:28px;height:28px}
+@media(min-width:768px){.phone-ic svg{width:36px;height:36px}}
+.phone-l{display:block;font-size:11px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--sand2)}
+.phone-v{font-family:var(--d);font-size:clamp(20px,4.5vw,36px);font-weight:700;transition:color .3s}
+.phone-b:hover .phone-v{color:var(--gold)}
+.f-meta{display:flex;flex-direction:column;gap:12px;font-size:14px;color:rgba(237,228,211,.7)}
+@media(min-width:768px){.f-meta{text-align:right}}
+.f-meta span{display:flex;align-items:center;gap:8px}
+@media(min-width:768px){.f-meta span{justify-content:flex-end}}
+.f-meta svg{width:16px;height:16px;flex-shrink:0;color:var(--gold)}
+.channels{display:grid;gap:16px;margin-top:64px}
+@media(min-width:640px){.channels{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.channels{grid-template-columns:repeat(4,1fr)}}
+.channel{display:flex;flex-direction:column;gap:24px;border:1px solid var(--line);background:var(--coal);border-radius:16px;padding:24px;transition:.3s}
+.channel:hover{border-color:rgba(237,228,211,.3)}
+.channel.accent{border-color:rgba(226,162,75,.6);background:rgba(226,162,75,.1)}
+.channel.accent:hover{border-color:var(--gold)}
+.ch-top{display:flex;align-items:center;justify-content:space-between}
+.ch-ic{display:grid;place-items:center;width:44px;height:44px;border:1px solid var(--line);border-radius:12px;color:var(--gold);transition:.3s}
+.ch-ic svg{width:20px;height:20px}
+.channel:hover .ch-ic{border-color:var(--gold)}
+.channel.accent .ch-ic{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.ch-arr{width:20px;height:20px;color:var(--sand2);transition:.3s}
+.channel:hover .ch-arr{color:var(--gold);transform:translate(3px,-3px)}
+.ch-k{font-size:11px;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--sand2)}
+.ch-v{font-family:var(--d);font-size:16px;font-weight:600;margin-top:6px}
+@media(min-width:768px){.ch-v{font-size:18px}}
+.ch-h{font-size:12px;color:rgba(237,228,211,.5);margin-top:4px}
+.foot-bar{display:flex;flex-direction:column;align-items:center;gap:24px;border-top:1px solid var(--line);padding:32px 0 40px;margin-top:64px}
+@media(min-width:768px){.foot-bar{flex-direction:row;justify-content:space-between;padding-bottom:32px}}
+.foot-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:24px;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--sand2)}
+.foot-nav a{transition:color .3s}
+.foot-nav a:hover{color:var(--gold)}
+.rights{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--sand2)}
+
+
+/* ============ НОВЫЕ НАПРАВЛЕНИЯ ============ */
+.countries{background:radial-gradient(ellipse at 12% 20%,rgba(226,162,75,.08),transparent 38%),var(--ink);padding-bottom:80px}
+.country-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:42px}
+@media(min-width:680px){.country-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}}
+@media(min-width:1150px){.country-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.country-tile{position:relative;min-height:345px;overflow:hidden;border-radius:20px;text-align:left;isolation:isolate;border:1px solid rgba(237,228,211,.16);background:#27251d;display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;padding:24px;transition:transform .35s var(--ease),border-color .35s,box-shadow .35s;cursor:pointer}
+@media(min-width:1150px){.country-tile{min-height:405px}}
+.country-tile:focus-visible,.card:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.country-tile:hover{transform:translateY(-6px);border-color:rgba(226,162,75,.6);box-shadow:0 28px 50px rgba(0,0,0,.3)}
+.country-tile img{position:absolute;inset:0;height:100%;width:100%;object-fit:cover;z-index:-2;transition:transform .8s var(--ease);filter:saturate(.87)}
+.country-tile:hover img{transform:scale(1.07)}
+.country-tile::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(8,8,7,.46),rgba(8,8,7,.08) 37%,rgba(8,8,7,.9))}
+.country-top{display:flex;width:100%;align-items:center;justify-content:space-between}
+.country-code{display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(237,228,211,.4);border-radius:999px;background:rgba(9,9,9,.28);backdrop-filter:blur(8px);padding:7px 12px;font-family:var(--d);font-weight:600;font-size:10px;letter-spacing:.14em}
+.country-count{font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;opacity:.9}
+.country-name{font-family:var(--d);font-weight:750;text-transform:uppercase;font-size:clamp(17px,2.2vw,23px);letter-spacing:-.025em;line-height:1.22;overflow-wrap:anywhere}
+.country-sub{display:block;font-size:12px;line-height:1.5;color:rgba(255,255,255,.77);margin-top:8px;min-height:36px}
+.country-bottom{display:flex;width:100%;align-items:end;justify-content:space-between;gap:12px}
+.country-arrow{display:grid;place-items:center;flex-shrink:0;border:1px solid rgba(237,228,211,.35);background:rgba(14,12,8,.45);backdrop-filter:blur(4px);width:46px;height:46px;border-radius:50%;transition:background .3s,color .3s}
+.country-arrow svg{width:19px;height:19px}
+.country-tile:hover .country-arrow{background:var(--gold);color:var(--ink)}
+.countries-note{border:1px solid var(--line);background:linear-gradient(115deg,rgba(226,162,75,.08),rgba(95,168,160,.04));padding:18px 22px;border-radius:14px;margin-top:22px;display:flex;align-items:flex-start;gap:14px;font-size:13px;color:rgba(237,228,211,.75);line-height:1.6}
+.countries-note svg{flex-shrink:0;width:20px;height:20px;color:var(--gold)}
+.countries-note strong{color:var(--sand)}
+.country-tile:hover .country-name{color:#fff}
+.card{position:relative}
+.card:focus-visible{border-color:var(--gold)}
+.card-foot .request{font-family:var(--d);font-size:11px;line-height:1.6;font-weight:650;max-width:230px;text-transform:uppercase;letter-spacing:.035em;color:var(--gold)}
+.card-country{display:inline-flex;color:var(--gold);font-size:10px;font-weight:750;letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px}
+.modal-note{margin-top:20px;padding:13px 15px;border:1px solid rgba(226,162,75,.25);border-radius:12px;font-size:12px;line-height:1.65;color:rgba(237,228,211,.68)}
+.modal-note strong{color:var(--gold)}
+.price-cta{align-items:center}
+.price-cta .request-title{font-family:var(--d);font-size:clamp(13px,2vw,17px);line-height:1.5;font-weight:650;max-width:320px;color:var(--sand)}
+.credits{margin-top:2px;border-top:1px solid var(--line);padding:20px 0 30px;font-size:11px;color:var(--sand2)}
+.credits summary{width:max-content;cursor:pointer;letter-spacing:.08em}
+.credits a{color:var(--sand2);text-decoration:underline;text-decoration-color:rgba(237,228,211,.3);text-underline-offset:3px}
+.credits a:hover{color:var(--gold)}
+#creditsList{display:flex;gap:10px 24px;flex-wrap:wrap;padding-top:16px;line-height:1.55}
+@media(max-width:639px){.hero-stats .stat-v{font-size:clamp(15px,5vw,24px)}.hero-stats .stat-l{font-size:9px;letter-spacing:.08em}.filters{flex-wrap:nowrap;overflow-x:auto;padding:4px 0 10px;scrollbar-width:thin}.filter{flex:0 0 auto}.btn{white-space:normal;text-align:center}.modal-body{padding:20px}.country-grid{margin-top:28px}}
+
+
+
+/* ============ КОНСТРУКТОР МАРШРУТА ============ */
+.planner{background:radial-gradient(circle at 18% 12%,rgba(95,168,160,.08),transparent 34%),radial-gradient(circle at 84% 18%,rgba(226,162,75,.07),transparent 28%),var(--ink2)}
+.planner-layout{display:grid;gap:24px;margin-top:40px}
+@media(min-width:1100px){.planner-layout{grid-template-columns:minmax(0,1.15fr) minmax(360px,.85fr);align-items:start}}
+.planner-map,.planner-panel{border:1px solid var(--line);border-radius:22px;background:linear-gradient(180deg,rgba(36,30,20,.9),rgba(18,16,9,.96));overflow:hidden}
+.planner-map{padding:24px}
+.planner-panel{padding:24px;position:sticky;top:108px}
+.planner-country-filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px}
+.planner-country-btn{border:1px solid var(--line);border-radius:999px;padding:10px 16px;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--sand2);transition:.25s}
+.planner-country-btn.on,.planner-country-btn:hover{border-color:var(--gold);background:var(--gold);color:var(--ink)}
+.map-stage{position:relative;min-height:560px;border-radius:20px;border:1px solid rgba(237,228,211,.08);background:linear-gradient(180deg,rgba(12,10,7,.55),rgba(12,10,7,.84));overflow:hidden}
+.map-stage::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 22% 26%,rgba(226,162,75,.14),transparent 18%),radial-gradient(circle at 75% 34%,rgba(95,168,160,.12),transparent 20%),linear-gradient(135deg,rgba(255,255,255,.03) 25%,transparent 25%) 0 0/28px 28px;opacity:.85}
+.map-stage::after{content:"";position:absolute;inset:14px;border:1px dashed rgba(237,228,211,.08);border-radius:18px;pointer-events:none}
+.map-country-label{position:absolute;left:26px;top:24px;z-index:1;font-family:var(--d);font-size:clamp(24px,4vw,38px);line-height:1.05;text-transform:uppercase;max-width:220px;color:rgba(237,228,211,.9)}
+.map-country-label small{display:block;font-family:var(--b);font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.map-country-label span{display:block;color:rgba(237,228,211,.5);font-size:clamp(18px,3vw,28px)}
+.map-region-lines{position:absolute;inset:0;pointer-events:none;opacity:.65}
+.map-region-lines i{position:absolute;display:block;height:1px;background:linear-gradient(90deg,transparent,rgba(237,228,211,.16),transparent)}
+.map-region-lines i:nth-child(1){left:10%;top:28%;width:44%}
+.map-region-lines i:nth-child(2){right:9%;top:42%;width:36%}
+.map-region-lines i:nth-child(3){left:24%;bottom:26%;width:42%}
+#mapPins{position:absolute;inset:0;z-index:2}
+.pin-btn{position:absolute;transform:translate(-50%,-50%);display:flex;align-items:center;gap:12px;min-width:180px;max-width:220px;padding:11px 14px;border-radius:18px;border:1px solid rgba(237,228,211,.15);background:rgba(18,16,9,.72);backdrop-filter:blur(8px);color:var(--sand);text-align:left;transition:transform .25s var(--ease),border-color .25s,background .25s,box-shadow .25s}
+.pin-btn:hover{transform:translate(-50%,-54%);border-color:rgba(226,162,75,.58);box-shadow:0 16px 26px rgba(0,0,0,.28)}
+.pin-btn.on{border-color:var(--gold);background:rgba(226,162,75,.12);box-shadow:0 16px 30px rgba(0,0,0,.25)}
+.pin-dot{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:rgba(226,162,75,.16);color:var(--gold);flex-shrink:0}
+.pin-dot svg{width:18px;height:18px}
+.pin-copy b{display:block;font-size:13px;line-height:1.35}
+.pin-copy span{display:block;font-size:11px;line-height:1.45;letter-spacing:.12em;text-transform:uppercase;color:var(--sand2);margin-top:3px}
+.planner-panel-k{font-size:11px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--gold)}
+.planner-panel-h{font-family:var(--d);font-size:clamp(24px,3.1vw,36px);line-height:1.08;text-transform:uppercase;margin-top:10px}
+.planner-summary{display:grid;gap:16px;margin-top:24px;padding:18px;border:1px solid var(--line);border-radius:18px;background:rgba(12,10,7,.45)}
+.planner-summary label{display:block;font-size:10px;font-weight:700;letter-spacing:.23em;text-transform:uppercase;color:var(--sand2);margin-bottom:8px}
+.planner-city{font-size:15px;font-weight:600;line-height:1.5;color:var(--sand)}
+.selected-list{display:flex;flex-wrap:wrap;gap:10px}
+.sel-chip{display:inline-flex;align-items:center;gap:8px;border-radius:999px;border:1px solid rgba(226,162,75,.25);padding:9px 12px;background:rgba(226,162,75,.08);font-size:12px;font-weight:600;line-height:1.35;color:var(--sand)}
+.sel-chip button{display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:rgba(237,228,211,.08);color:var(--sand2);transition:.2s}
+.sel-chip button:hover{background:rgba(237,228,211,.14);color:var(--sand)}
+.planner-placeholder{font-size:14px;line-height:1.65;color:rgba(237,228,211,.55)}
+.planner-tip{font-size:13px;line-height:1.7;color:rgba(237,228,211,.68);margin-top:18px}
+.planner-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.planner-legend{display:flex;gap:10px;align-items:center;font-size:12px;color:var(--sand2);margin-top:16px}
+.map-visual{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.map-grid-lines path{fill:none;stroke:rgba(237,228,211,.08);stroke-width:1.2;stroke-dasharray:5 11}
+.map-spine{fill:none;stroke:rgba(226,162,75,.14);stroke-width:2.2;stroke-linecap:round;stroke-dasharray:1 14}
+.map-shape{fill:rgba(237,228,211,.055);stroke:rgba(237,228,211,.16);stroke-width:1.5;vector-effect:non-scaling-stroke}
+.map-shape-core{fill:url(#mapLakeGrad);opacity:.22;stroke:rgba(95,168,160,.24);stroke-width:1}
+.map-shape-outline{fill:none;stroke:url(#mapGoldGrad);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;opacity:.82;vector-effect:non-scaling-stroke}
+.map-shape-mini{fill:none;stroke:rgba(237,228,211,.12);stroke-width:1;stroke-dasharray:3 8;vector-effect:non-scaling-stroke}
+.map-route{fill:none;stroke:url(#mapGoldGrad);stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 10px rgba(226,162,75,.2));opacity:.95;vector-effect:non-scaling-stroke}
+.pin-ring{fill:none;stroke:rgba(226,162,75,.22);stroke-width:2}
+.pin-node{fill:#e2a24b;stroke:#0c0a07;stroke-width:4}
+.pin-node.active{filter:drop-shadow(0 0 8px rgba(226,162,75,.55))}
+.pin-pulse{fill:rgba(226,162,75,.10);stroke:rgba(226,162,75,.14);stroke-width:1.3;transform-origin:center;animation:pinpulse 2.8s ease-in-out infinite}
+@keyframes pinpulse{0%,100%{transform:scale(.92);opacity:.5}50%{transform:scale(1.08);opacity:1}}
+.map-stage::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 22% 26%,rgba(226,162,75,.10),transparent 18%),radial-gradient(circle at 75% 34%,rgba(95,168,160,.10),transparent 20%),linear-gradient(180deg,rgba(255,255,255,.02),transparent 42%),linear-gradient(135deg,rgba(255,255,255,.03) 25%,transparent 25%) 0 0/28px 28px;opacity:.85}
+.map-stage::after{content:"";position:absolute;inset:14px;border:1px dashed rgba(237,228,211,.08);border-radius:18px;pointer-events:none}
+
+.planner-legend i{display:inline-flex;width:10px;height:10px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 6px rgba(226,162,75,.12)}
+@media(max-width:1099px){.planner-panel{position:static;top:auto}}
+@media(max-width:680px){.planner-map,.planner-panel{padding:18px}.map-stage{min-height:620px}.pin-btn{min-width:148px;max-width:180px;padding:10px 12px;gap:10px}.pin-dot{width:36px;height:36px}.pin-copy b{font-size:12px}.pin-copy span{font-size:10px;letter-spacing:.08em}.map-country-label{left:20px;top:18px;max-width:190px}}
+
+
+
+/* АДАПТИВ: КАРТА / НАВИГАЦИЯ / КАРТОЧКИ / МОБИЛЬНЫЕ ЭКРАНЫ */
+html{scroll-padding-top:80px}
+section[id],footer[id]{scroll-margin-top:82px}
+.container,.nav-inner,.sec-head,.planner-layout,.nat-grid,.faq-grid,.f-row{min-width:0}
+.sec-head>*,.nat-grid>*,.planner-layout>*,.f-row>*{min-width:0}
+button,a{-webkit-tap-highlight-color:transparent}
+button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+img{height:auto}
+.card,.country-tile,.channel{min-width:0}
+.card-title,.country-name,.phone-v,.ch-v,.f-h2,.hero-title{overflow-wrap:break-word}
+.map-stage{min-height:520px;isolation:isolate}
+.map-visual{pointer-events:none}
+.map-country-label{max-width:min(300px,70%);font-size:clamp(20px,3vw,34px);pointer-events:none}
+.map-country-label span{font-size:clamp(12px,1.5vw,16px);line-height:1.45;margin-top:8px}
+.map-region-lines{z-index:0}
+#mapPins{z-index:4;pointer-events:none}
+.pin-btn{min-width:0;max-width:none;width:46px;height:46px;padding:4px;border-radius:50%;display:grid;place-items:center;pointer-events:auto;transform:translate(-50%,-50%);background:rgba(16,14,10,.83);border:1px solid rgba(226,162,75,.58);box-shadow:0 4px 18px rgba(0,0,0,.4);z-index:1}
+.pin-btn:hover,.pin-btn:focus-visible{z-index:7;transform:translate(-50%,-54%);background:rgba(62,42,18,.96)}
+.pin-btn.on{z-index:5;background:var(--gold);border-color:var(--sand);color:var(--ink);box-shadow:0 0 0 5px rgba(226,162,75,.2),0 12px 28px rgba(0,0,0,.45)}
+.pin-dot{width:100%;height:100%;display:grid;place-items:center;background:transparent;color:var(--gold);font-family:var(--d);font-size:12px;font-weight:700;border:0}
+.pin-btn.on .pin-dot{color:var(--ink)}
+.pin-copy{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(-5px);z-index:8;min-width:170px;max-width:210px;width:max-content;background:rgba(16,14,10,.97);border:1px solid rgba(226,162,75,.48);border-radius:12px;padding:12px 14px;box-shadow:0 14px 30px rgba(0,0,0,.4);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s,transform .2s}
+.pin-btn:hover .pin-copy,.pin-btn:focus-visible .pin-copy{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.pin-copy b{font-size:12px}
+.pin-copy span{font-size:10px}
+.planner-places-head{display:flex;gap:16px;align-items:center;justify-content:space-between;margin:24px 0 12px;color:var(--sand);font-size:12px;font-weight:700;letter-spacing:.15em;text-transform:uppercase}
+#plannerPlacesCount{color:var(--gold);font-size:11px;white-space:nowrap}
+.planner-place-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.planner-place{width:100%;min-width:0;min-height:74px;display:flex;align-items:center;gap:12px;text-align:left;padding:12px;border:1px solid var(--line);background:rgba(12,10,7,.56);border-radius:13px;transition:background .25s,border-color .25s,transform .25s}
+.planner-place:hover{background:var(--coal);border-color:rgba(226,162,75,.42)}
+.planner-place.on{border-color:var(--gold);background:rgba(226,162,75,.1)}
+.planner-place-number{font-family:var(--d);font-size:11px;color:var(--gold);min-width:25px;text-align:center}
+.planner-place-copy{display:flex;flex:1;min-width:0;flex-direction:column;gap:4px}
+.planner-place-copy b{font-size:13px;font-weight:700;line-height:1.35;overflow-wrap:anywhere}
+.planner-place-copy small{font-size:11px;color:var(--sand2)}
+.planner-place-check{display:grid;place-items:center;flex:0 0 29px;width:29px;height:29px;border-radius:50%;background:rgba(237,228,211,.08);color:var(--sand2)}
+.planner-place-check svg{width:15px;height:15px}
+.planner-place.on .planner-place-check{background:var(--gold);color:var(--ink)}
+.planner-legend{line-height:1.6;margin-top:20px}
+.planner-legend i{flex:0 0 10px}
+.sel-chip{max-width:100%;overflow-wrap:anywhere;border-radius:13px}
+.sel-chip button{flex:0 0 22px;height:22px;width:22px}
+@media(min-width:1024px) and (max-width:1279px){
+ .nav-links,.nav-cta{display:none}
+ .nav-burger{display:grid}
+}
+@media(min-width:1280px){
+ .nav-links{gap:clamp(14px,2vw,28px)}
+ .nav-links a{font-size:11px;letter-spacing:.08em}
+ .nav-inner{gap:18px}
+}
+@media(min-width:768px) and (max-width:1099px){
+ .map-stage{min-height:480px}
+ .planner-map,.planner-panel{padding:24px}
+ .planner-layout{gap:18px}
+ .planner-country-filters{gap:8px}
+ .planner-country-btn{padding:12px 14px}
+}
+@media(max-width:767px){
+ html{scroll-padding-top:66px}
+ section[id],footer[id]{scroll-margin-top:66px}
+ .section{padding:76px 0}
+ .container{padding:0 22px}
+ .sec-head{gap:16px}
+ .sec-p{font-size:14px;line-height:1.7}
+ .nav-inner{gap:8px}
+ .brand{gap:9px;min-width:0}
+ .brand-mark{flex-shrink:0;width:34px;height:34px}
+ .brand-text{font-size:clamp(10px,2.9vw,14px);letter-spacing:.09em;white-space:nowrap}
+ .nav-right{gap:7px;flex-shrink:0}
+ .lang button{padding:7px 8px;min-height:36px;font-size:10px}
+ .nav-burger{flex-shrink:0}
+ .hero{min-height: min(880px,100svh)}
+ .hero-content{padding-top:115px;padding-bottom:35px}
+ .hero-bottom{margin-top:24px;gap:24px}
+ .hero-p{font-size:15px;line-height:1.7}
+ .hero-cta{gap:10px}
+ .hero-cta .btn{padding:13px 18px;font-size:11px}
+ .hero-stats{margin-top:12px}
+ .stat{padding:16px 0}
+ .stat-v{font-size:clamp(16px,5vw,26px)}
+ .stat-l{line-height:1.35;letter-spacing:.09em}
+ .grid-tours{gap:16px;margin-top:26px}
+ .card-body{padding:20px;gap:16px}
+ .card-tag{font-size:13px}
+ .country-tile{min-height:320px}
+ .country-grid{margin-top:26px}
+ .planner-layout{margin-top:28px;gap:18px}
+ .planner-map,.planner-panel{border-radius:18px;padding:16px}
+ .planner-country-filters{flex-wrap:nowrap;overflow-x:auto;gap:8px;margin:0 -2px 14px;padding:2px 2px 10px;overscroll-behavior-inline:contain;scrollbar-width:thin}
+ .planner-country-btn{flex:0 0 auto;padding:11px 13px;font-size:11px;min-height:44px}
+ .map-stage{min-height:clamp(325px,90vw,425px);border-radius:16px}
+ .map-country-label{left:18px;top:16px;max-width:210px;font-size:clamp(17px,5.4vw,26px)}
+ .map-country-label small{font-size:9px;letter-spacing:.16em;margin-bottom:5px}
+ .map-country-label span{font-size:11px;letter-spacing:.02em;margin-top:5px}
+ .pin-btn{width:42px;height:42px;padding:3px}
+ .pin-dot{font-size:11px}
+ .pin-copy{display:none!important}
+ .planner-places-head{margin-top:17px;font-size:11px}
+ .planner-place-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .planner-place{gap:8px;padding:10px;min-height:72px}
+ .planner-place-number{min-width:16px;font-size:10px}
+ .planner-place-copy b{font-size:12px}
+ .planner-place-copy small{font-size:10px}
+ .planner-place-check{flex-basis:25px;width:25px;height:25px}
+ .planner-panel{position:static}
+ .planner-summary{padding:16px}
+ .planner-actions{display:grid;grid-template-columns:1fr;gap:10px}
+ .planner-actions .btn{width:100%;min-height:48px;white-space:normal;text-align:center;padding:13px 18px;font-size:11px}
+ .nat-grid{gap:36px}
+ .collage{min-height:clamp(320px,100vw,520px)}
+ .col-a{width:78%;top:22px}
+ .col-b{width:52%;bottom:8px}
+ .nat-stats{margin-top:40px}
+ .faq-grid{gap:30px}
+ .faq-q{gap:12px;padding:20px 0}
+ .faq-q .t{font-size:14px;line-height:1.55}
+ .faq-q .n{font-size:11px}
+ .faq-a p{padding:0 10px 22px 24px}
+ .footer .f-inner{padding-top:85px}
+ .f-h2{font-size:clamp(32px,10.5vw,68px)}
+ .f-row{gap:26px;margin-top:28px}
+ .channels{margin-top:38px}
+ .channel{padding:20px}
+ .foot-bar{gap:20px}
+ .foot-nav{gap:14px}
+ .modal-card{max-height:calc(100dvh - 12px);border-radius:20px 20px 0 0}
+ .modal-img{height:clamp(190px,56vw,280px)}
+ .modal-close{top:12px;right:12px}
+ .modal-body{padding:20px}
+ .price-cta{padding:16px}
+ .price-cta .btn{width:100%;white-space:normal;text-align:center}
+}
+@media(max-width:420px){
+ .container{padding:0 16px}
+ .brand{gap:7px}
+ .brand-text{font-size:11px;letter-spacing:.03em}
+ .brand-mark{width:32px;height:32px}
+ .nav-right{gap:5px}
+ .lang{padding:2px}
+ .lang button{font-size:9px;padding:7px 6px}
+ .nav-burger{width:38px;height:38px}
+ .hero-cta .btn{width:100%;min-height:45px}
+ .hero-content{padding-top:105px}
+ .planner-map,.planner-panel{padding:12px}
+ .planner-place-list{grid-template-columns:1fr}
+ .planner-place{min-height:60px;padding:10px 14px}
+ .planner-place-copy b{font-size:13px}
+ .planner-place-check{flex-basis:30px;width:30px;height:30px}
+ .map-stage{min-height:340px}
+ .phone-b{gap:12px}
+ .phone-ic{width:50px;height:50px}
+ .phone-v{font-size:clamp(17px,4.8vw,21px)}
+ .ns-cell{padding:16px}
+ .chip-float{padding:12px}
+ .chip-float b{font-size:22px}
+ .chip-float span{font-size:9px;max-width:108px}
+ .col-cap{letter-spacing:.12em;font-size:9px}
+}
+@media(max-width:350px){
+ .brand-text{font-size:10px}
+ .lang button{padding:7px 5px}
+ .nav-right{gap:3px}
+ .map-country-label{max-width:175px}
+ .pin-btn{width:39px;height:39px}
+ .stat-l{font-size:8px}
+ .modal-card{max-height:100dvh}
+}
+@media(max-height:650px) and (orientation:landscape){
+ .hero{min-height:680px}
+ .modal-card{max-height:calc(100dvh - 20px)}
+ .mm{overflow-y:auto;overscroll-behavior:contain}
+ .mm-nav{gap:2px}
+ .mm-nav a{font-size:clamp(19px,4vw,32px)}
+ .mm-foot{padding-bottom:18px;gap:8px}
+}
+@media(hover:none){
+ .pin-btn:hover{transform:translate(-50%,-50%)}
+ .country-tile:hover{transform:none}
+ .card:hover .card-img img{transform:none}
+}
+
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<main>
+<div class="grain"></div>
+
+<!-- ШАПКА -->
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="#top">
+      <span class="brand-mark" id="brandMark"></span>
+      <span class="brand-text d">COOLTOUR<span class="gold">.KZ</span></span>
+    </a>
+    <nav class="nav-links" id="navLinks"></nav>
+    <div class="nav-right">
+      <div class="lang" id="langSwitch"></div>
+      <a class="btn btn-light nav-cta" id="navCta" target="_blank" rel="noreferrer"></a>
+      <button class="icon-btn nav-burger" id="burger" aria-label="Открыть меню"></button>
+    </div>
+  </div>
+</header>
+
+<!-- МОБИЛЬНОЕ МЕНЮ -->
+<div class="mm" id="mobileMenu">
+  <div class="mm-head">
+    <span class="brand-text d">COOLTOUR<span class="gold">.KZ</span></span>
+    <div style="display:flex;gap:8px;align-items:center">
+      <div class="lang" id="langSwitchM"></div>
+      <button class="icon-btn" id="mmClose" aria-label="Закрыть меню"></button>
+    </div>
+  </div>
+  <nav class="mm-nav" id="mmNav"></nav>
+  <div class="mm-foot">
+    <a class="btn btn-gold" id="mmCta" target="_blank" rel="noreferrer" style="align-self:flex-start"></a>
+    <p id="mmPhone"></p>
+    <p id="mmCities" class="mut"></p>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg"><img id="heroImg" src="img/hero-canyon.jpg" alt="Kazakhstan canyon" /></div>
+  <div class="hero-g1"></div>
+  <div class="hero-g2"></div>
+  <div class="side-label side-r" id="sideR"></div>
+  <div class="side-label side-l" id="sideL"></div>
+  <div class="container hero-content">
+    <div class="ov" id="heroOv" style="margin-bottom:24px"></div>
+    <h1 class="hero-title" id="heroTitle"></h1>
+    <div class="hero-bottom">
+      <p class="hero-p" id="heroP"></p>
+      <div class="hero-cta">
+        <a href="#tours" class="btn btn-gold" id="heroBtn1"></a>
+        <a href="#countries" class="btn btn-ghost" id="heroBtn2"></a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-stats"><div class="container stats-grid" id="heroStats"></div></div>
+  <div class="scroll-hint"><span id="shArr"></span><span class="drop"></span></div>
+</section>
+
+<!-- БЕГУЩАЯ СТРОКА -->
+<div class="marquee"><div class="mq-track" id="mqTrack"></div></div>
+
+<!-- СТРАНЫ -->
+<section class="section sec countries" id="countries" aria-labelledby="countriesTitle">
+ <div class="container">
+  <div class="sec-head"><div class="rv"><p class="ov" id="countriesOv"></p><h2 class="h2" id="countriesTitle"></h2></div><p class="sec-p rv" id="countriesDesc"></p></div>
+  <div class="country-grid" id="countryGrid"></div>
+  <div class="countries-note rv" id="countriesNote"></div>
+ </div>
+</section>
+
+<!-- ТУРЫ -->
+<section class="section sec" id="tours">
+  <div class="container">
+    <div class="sec-head">
+      <div class="rv">
+        <p class="ov" id="toursOv"></p>
+        <h2 class="h2" id="toursH2"></h2>
+      </div>
+      <p class="sec-p rv" id="toursP"></p>
+    </div>
+    <div class="filters rv" id="tourFilters" role="group" aria-label="Фильтр по стране"></div>
+    <div class="grid-tours" id="toursGrid"></div>
+  </div>
+</section>
+
+<!-- КОНСТРУКТОР МАРШРУТА -->
+<section class="section sec planner" id="planner">
+  <div class="container">
+    <div class="sec-head">
+      <div class="rv">
+        <p class="ov" id="plannerOv"></p>
+        <h2 class="h2" id="plannerH2"></h2>
+      </div>
+      <p class="sec-p rv" id="plannerP"></p>
+    </div>
+    <div class="planner-layout">
+      <div class="planner-map rv">
+        <div class="planner-country-filters" id="plannerCountryFilters"></div>
+        <div class="map-stage">
+          <svg class="map-visual" id="mapVisual" viewBox="0 0 1000 700" aria-hidden="true" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="mapGoldGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#f0be71" stop-opacity="0.9"/>
+                <stop offset="100%" stop-color="#c97c31" stop-opacity="0.55"/>
+              </linearGradient>
+              <linearGradient id="mapLakeGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#6bc0b7" stop-opacity="0.55"/>
+                <stop offset="100%" stop-color="#21443f" stop-opacity="0.1"/>
+              </linearGradient>
+              <filter id="mapGlow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="16" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+            <g class="map-ambient">
+              <circle cx="170" cy="120" r="110" fill="url(#mapGoldGrad)" opacity="0.10" filter="url(#mapGlow)"/>
+              <circle cx="840" cy="180" r="150" fill="url(#mapLakeGrad)" opacity="0.18" filter="url(#mapGlow)"/>
+              <circle cx="690" cy="570" r="130" fill="url(#mapGoldGrad)" opacity="0.08" filter="url(#mapGlow)"/>
+            </g>
+            <g class="map-grid-lines">
+              <path d="M84 132C212 118 278 158 378 146C468 136 520 86 622 94C710 100 800 152 904 130"/>
+              <path d="M96 228C188 196 292 202 402 218C494 232 574 262 684 242C784 222 852 174 916 180"/>
+              <path d="M88 332C192 320 254 364 354 372C470 382 560 324 664 342C770 360 836 396 914 376"/>
+              <path d="M98 446C214 418 306 434 426 472C524 502 650 500 760 462C832 438 870 420 914 428"/>
+              <path d="M124 544C214 540 286 574 382 594C500 618 600 612 720 584C788 568 840 534 892 514"/>
+            </g>
+            <path class="map-spine" d="M214 118C306 210 356 288 450 354C532 414 626 430 724 506"/>
+            <g id="mapShapeWrap"></g>
+            <path class="map-route" id="mapRoutePath" d=""/>
+            <g id="mapPinsSvg"></g>
+          </svg>
+          <div class="map-country-label" id="mapCountryLabel"></div>
+          <div class="map-region-lines"><i></i><i></i><i></i></div>
+          <div id="mapPins"></div>
+        </div>
+        <div class="planner-places-head"><span id="plannerPlacesHeading"></span><span id="plannerPlacesCount" aria-live="polite"></span></div>
+        <div class="planner-place-list" id="plannerPlaceList" role="group" aria-label="Достопримечательности"></div>
+        <div class="planner-legend"><i></i><span id="plannerLegend"></span></div>
+      </div>
+      <aside class="planner-panel rv">
+        <p class="planner-panel-k" id="plannerPanelK"></p>
+        <h3 class="planner-panel-h" id="plannerPanelH"></h3>
+        <div class="planner-summary">
+          <div>
+            <label id="plannerCityL"></label>
+            <p class="planner-city" id="plannerCityV"></p>
+          </div>
+          <div>
+            <label id="plannerPlacesL"></label>
+            <div class="selected-list" id="plannerSelected"></div>
+          </div>
+        </div>
+        <p class="planner-tip" id="plannerTip"></p>
+        <div class="planner-actions">
+          <button class="btn btn-ghost" id="plannerReset" type="button"></button>
+          <a class="btn btn-gold" id="plannerWa" target="_blank" rel="noreferrer"></a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ПРИРОДА -->
+<section class="section sec nature" id="nature">
+  <div class="container">
+    <div class="nat-grid">
+      <div>
+        <p class="ov rv" id="natOv"></p>
+        <h2 class="h2 rv" id="natH2"></h2>
+        <div id="natParas"></div>
+        <div id="natFeatures" style="margin-top:48px"></div>
+      </div>
+      <div class="collage" id="collage">
+        <div class="col-a" id="colA">
+          <img id="natPhoto1" src="https://commons.wikimedia.org/wiki/Special:FilePath/Registan_Samarkand_Uzbekistan.JPG?width=900" alt="Samarkand, Uzbekistan" loading="lazy" onerror="this.onerror=null;this.src='img/uzbekistan.svg'" />
+          <span class="col-cap" id="cap1"></span>
+        </div>
+        <div class="col-b" id="colB">
+          <img id="natPhoto2" src="https://commons.wikimedia.org/wiki/Special:FilePath/Lake_Issyk-Kul%2C_Kyrgyzstan.jpg?width=900" alt="Issyk-Kul, Kyrgyzstan" loading="lazy" onerror="this.onerror=null;this.src='img/kyrgyzstan.svg'" />
+          <span class="col-cap" id="cap2"></span>
+        </div>
+        <div class="chip-float"><b id="chipV"></b><span id="chipL"></span></div>
+      </div>
+    </div>
+    <div class="nat-stats" id="natStats"></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section sec" id="faq">
+  <div class="container faq-grid">
+    <div class="rv">
+      <p class="ov" id="faqOv"></p>
+      <h2 class="h2" id="faqH2"></h2>
+      <p class="faq-p" id="faqP"></p>
+    </div>
+    <div id="faqList"></div>
+  </div>
+</section>
+
+<!-- КОНТАКТЫ -->
+<footer class="footer sec" id="contacts">
+  <div class="f-bg"><img src="img/bozzhyra.jpg" alt="" loading="lazy" /></div>
+  <div class="container f-inner">
+    <p class="ov rv" id="fOv"></p>
+    <h2 class="f-h2 rv" id="fH2"></h2>
+    <div class="f-row rv">
+      <a class="phone-b" id="phoneBlock" target="_blank" rel="noreferrer">
+        <span class="phone-ic" id="phoneIc"></span>
+        <span><span class="phone-l" id="phoneL"></span><br /><span class="phone-v" id="phoneV"></span></span>
+      </a>
+      <div class="f-meta">
+        <span id="addrRow"></span>
+        <span id="hoursRow"></span>
+      </div>
+    </div>
+    <div class="channels rv" id="channels"></div>
+    <div class="foot-bar">
+      <div class="brand"><span class="brand-mark" style="width:32px;height:32px" id="brandMark2"></span><span class="brand-text d" style="font-size:14px">COOLTOUR<span class="gold">.KZ</span></span></div>
+      <nav class="foot-nav" id="footNav"></nav>
+      <p class="rights" id="rights"></p>
+    </div>
+    <details class="credits"><summary id="creditsTitle"></summary><div id="creditsList"></div></details>
+  </div>
+</footer>
+
+<!-- МОДАЛКА -->
+<div class="modal" id="modal"><div class="modal-card" id="modalCard"></div></div>
+
+<script>
+/* ================= НАСТРОЙКИ ================= */
+const WA="77014790939";
+const PHONE="+7 701 479-09-39";
+const WA_HREF=(m)=>"https://wa.me/"+WA+"?text="+encodeURIComponent(m);
+const fill=(tpl,v)=>Object.keys(v).reduce((s,k)=>s.split("{"+k+"}").join(v[k]),tpl);
+
+/* ================= ИКОНКИ (SVG) ================= */
+const S=(i,w)=>'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="'+(w||2)+'" stroke-linecap="round" stroke-linejoin="round">'+i+'</svg>';
+const IC={
+ mountain:S('<path d="m8 3 4 8 5-5 5 15H2L8 3z"/>',2.2),
+ menu:S('<line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>'),
+ x:S('<path d="M18 6 6 18"/><path d="m6 6 12 12"/>'),
+ phone:S('<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>',1.6),
+ wa:S('<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>',1.9),
+ send:S('<path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/>',1.9),
+ insta:S('<rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>',1.9),
+ mail:S('<rect width="20" height="20" x="2" y="2" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>',1.9),
+ arrow:S('<path d="M7 7h10v10"/><path d="M7 17 17 7"/>'),
+ clock:S('<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>'),
+ pin:S('<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>'),
+ users:S('<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>'),
+ cal:S('<rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/>'),
+ check:S('<path d="M20 6 9 17l-5-5"/>'),
+ chev:S('<path d="m9 18 6-6-6-6"/>'),
+ plus:S('<path d="M12 5v14"/><path d="M5 12h14"/>'),
+ ast:S('<path d="M12 6v12"/><path d="M17.196 9 6.804 15"/><path d="m6.804 9 10.392 6"/>',1.6),
+ down:S('<path d="M12 5v14"/><path d="m19 12-7 7-7-7"/>'),
+ globe:S('<circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>'),
+ move:S('<path d="M18 8 22 12 18 16"/><path d="M2 12h20"/>'),
+ water:S('<path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/><path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"/>',1.8),
+ rock:S('<path d="m2.5 16.88a3 3 0 0 1-.32-1.43l9-13.02a1 1 0 0 1 1.64 0l9 13.01a3 3 0 0 1-.32 1.44l2.35 4.09a1 1 0 0 1-1.19 1.47l-1.11-.32a3 3 0 0 1-1.14-.91L10.48 12l-7.02 4.88Z"/><path d="m11 14.36 8.11 8.11-6.57.34Z"/>',1.8),
+ wind:S('<path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/>',1.8),
+ mnt2:S('<path d="m8 3 4 8 5-5 5 15H2L8 3z"/>',1.8)
+};
+
+/* ================= ДАННЫЕ ТУРОВ ================= */
+const TOURS=[{"id":"kolsai","num":"01","country":"kz","img":"img/kolsai.jpg","fallback":"img/kazakhstan.svg","diff":1},{"id":"bozzhyra","num":"02","country":"kz","img":"img/bozzhyra.jpg","fallback":"img/kazakhstan.svg","diff":2},{"id":"charyn","num":"03","country":"kz","img":"img/hero-canyon.jpg","fallback":"img/kazakhstan.svg","diff":1},{"id":"altyn-emel","num":"04","country":"kz","img":"img/barkhan.jpg","fallback":"img/kazakhstan.svg","diff":2},{"id":"bao","num":"05","country":"kz","img":"img/bao.jpg","fallback":"img/kazakhstan.svg","diff":1},{"id":"burabay","num":"06","country":"kz","img":"img/burabay.jpg","fallback":"img/kazakhstan.svg","diff":2},{"id":"uz-silk","num":"07","country":"uz","img":"https://commons.wikimedia.org/wiki/Special:FilePath/Registan_Samarkand_Uzbekistan.JPG?width=1100","fallback":"img/uzbekistan.svg","diff":1},{"id":"uz-khiva","num":"08","country":"uz","img":"https://commons.wikimedia.org/wiki/Special:FilePath/Khiva_skyline.jpg?width=1100","fallback":"img/uzbekistan.svg","diff":1},{"id":"uz-chimgan","num":"09","country":"uz","img":"https://commons.wikimedia.org/wiki/Special:FilePath/Uzbekistan_Chimgan_Mountains.jpg?width=1100","fallback":"img/uzbekistan.svg","diff":2},{"id":"kg-issyk","num":"10","country":"kg","img":"https://commons.wikimedia.org/wiki/Special:FilePath/Lake_Issyk-Kul,_Kyrgyzstan.jpg?width=1100","fallback":"img/kyrgyzstan.svg","diff":1},{"id":"kg-songkul","num":"11","country":"kg","img":"https://commons.wikimedia.org/wiki/Special:FilePath/Song-Kul,_Kyrgyzstan_(43670184405).jpg?width=1100","fallback":"img/kyrgyzstan.svg","diff":2},{"id":"kg-alaar","num":"12","country":"kg","img":"https://commons.wikimedia.org/wiki/Special:FilePath/Ala-Archa_National_Park_in_Kyrgyzstan.jpg?width=1100","fallback":"img/kyrgyzstan.svg","diff":2},{"id":"tm-darvaza","num":"13","country":"tm","img":"https://commons.wikimedia.org/wiki/Special:FilePath/Turkmenistan_gas_crater_at_night.jpg?width=1100","fallback":"img/turkmenistan.svg","diff":1},{"id":"tm-merv","num":"14","country":"tm","img":"https://commons.wikimedia.org/wiki/Special:FilePath/Turkmenistan_-_Sultan_Sanjar_mausoleum.jpg?width=1100","fallback":"img/turkmenistan.svg","diff":1}];
+const CATS=["all","kz","uz","kg","tm"];
+
+const TT={
+ru:{
+ kolsai:{title:"Кольсайские озёра и Каинды",region:"Алматинская область",tagline:"Жемчужины Тянь-Шаня: три бирюзовых озера и затонувший еловый лес Каинды.",duration:"2 дня / 1 ночь",diffLabel:"Лёгкий трек",group:"до 8 человек",season:"апрель — октябрь",start:"Алматы",highlights:["Нижнее и Среднее Кольсайские озёра","Затонувший лес озера Каинды","Перевал Уылдык и вид на Алтын-Таш","Ночёвка в горном гостевом доме села Саты"],itinerary:[{day:"День 1",t:"Саты — Каинды — Нижнее озеро",p:"Выезд из Алматы в 07:00. Путь через Кульджинский тракт, остановка в селе Саты. После обеда — подъём к Каинды: сухие ели в бирюзовой воде, прогулка по берегу. Вечером — ужин у костра и ночёвка в гостевом доме."},{day:"День 2",t:"Трек трёх озёр",p:"Лёгкий трек от Нижнего к Среднему Кольсайскому озеру (8 км, набор 300 м). Фотопауза на зеркальной глади, чай с видом на пики Заилийского Алатау. Возвращение в Алматы к 21:00."}],included:["Трансфер на внедорожнике","Гид-проводник","1 ночёвка + питание","Экосборы парков","Страховка"]},
+ bozzhyra:{title:"Мангистау: Бозжыра и Устюрт",region:"Мангистауская область",tagline:"Экспедиция на дно древнего океана — меловые каньоны, кокпала и знаменитые «клыки» Бозжыры.",duration:"3 дня / 2 ночи",diffLabel:"Экспедиция",group:"до 6 человек",season:"май — октябрь",start:"Актау",highlights:["Обрывы Устюрта и Косак-казкан","«Клыки» Бозжыра на рассвете","Каньон Бектята и гора Шербала","Ночёвка в глэмпинге в пустыне"],itinerary:[{day:"День 1",t:"Плато Устюрт",p:"Вылет в Актау, выезд на внедорожниках. Обрывы Устюрта, закат на смотровой Косак-казкан. Ужин у костра, ночёвка в глэмпинге."},{day:"День 2",t:"Бозжыра",p:"Рассвет у «клыков» Бозжыры, трек по меловому плато (6 км), пикник на белом каньоне. Звёздная съёмка при ясном небе."},{day:"День 3",t:"Бектята — Актау",p:"Розовые хребты каньона Бектята, гора Шербала. Возвращение в Актау к вечеру, трансфер в аэропорт."}],included:["Экипаж внедорожников","Гид-геолог","Глэмпинг 2 ночи + питание","Пермиты и экосборы","Фотограф","Страховка"]},
+ charyn:{title:"Чарынский каньон",region:"Алматинская область",tagline:"«Долина замков»: 150 метров красного песчаника, которым 12 миллионов лет.",duration:"1 день",diffLabel:"Лёгкий",group:"до 10 человек",season:"круглый год",start:"Алматы",highlights:["Долина замков — главная сцена маршрута","Лунный каньон и «Ведьмино ущелье»","Чёрный каньон над волнами реки Чарын","Пикник с традиционными баурсаками"],itinerary:[{day:"День 1",t:"Долина замков",p:"Выезд в 08:00. Спуск в каньон, 3 км прогулки к реке Чарын, перекус в «Экопарке». Полдень — Лунный и Чёрный каньоны на закатном свету. Возврат в Алматы к 19:00."}],included:["Трансфер","Гид","Пикник и чай","Экосборы","Страховка"]},
+ "altyn-emel":{title:"Алтын-Эмель",region:"Алматинская область",tagline:"Поющий бархан, разноцветные горы Актау и Катутау — национальный парк на границе пустыни.",duration:"2 дня / 1 ночь",diffLabel:"Средний",group:"до 8 человек",season:"апрель — ноябрь",start:"Алматы",highlights:["Поющий бархан — дюна высотой 150 м","Горы Актау — «меловой марсиан»","Оазис Шарган и 700-летняя ива","Ночёвка в посёлке Басши"],itinerary:[{day:"День 1",t:"Поющий бархан",p:"Выезд в 07:00, дорога вдоль реки Или. Подъём на бархан: если повезёт — гул песка под ногами. Закат над долиной Или, ночёвка в Басши."},{day:"День 2",t:"Горы Актау",p:"Прогулка среди белых, розовых и зелёных слоёв Актау. Оазис Шарган, вулканические гряды Катутау. Возвращение в Алматы к 22:00."}],included:["Трансфер на внедорожнике","Гид","1 ночёвка + питание","Экосборы парка","Страховка"]},
+ bao:{title:"Большое Алматинское озеро",region:"Заилийский Алатау",tagline:"Бирюзовая чаша на высоте 2511 м в получасе езды от мегаполиса.",duration:"1 день",diffLabel:"Лёгкий",group:"до 8 человек",season:"круглый год",start:"Алматы",highlights:["Панорама озера со смотровой площадки","Пик Большой Алматинский — до 3680 м","Медео и ущелье Коргау по пути","Соколиная ферма Сункар"],itinerary:[{day:"День 1",t:"Высота 2511",p:"Сбор в 09:00, подъём серпантином мимо Медео. Трек вдоль озера (4 км), чай на берегу. Остановка в Сункар на шоу охотничьих птиц, возврат к 18:00."}],included:["Трансфер","Гид","Чай и трейл-ланч","Вход в заповедник","Страховка"]},
+ burabay:{title:"Бурабай",region:"Акмолинская область",tagline:"«Казахская Швейцария» — гранитные скалы и сосновые боры среди девяти озёр.",duration:"2 дня / 1 ночь",diffLabel:"Средний",group:"до 10 человек",season:"круглый год",start:"Астана",highlights:["Окжетпес — «недосягаемая стрела»","Скала Жумбактас — «загадка-камень»","Аблайханский луг и роща берёз","Закат на озере Щучье"],itinerary:[{day:"День 1",t:"Окжетпес и Жумбактас",p:"Выезд из Астаны. Подъём на Окжетпес (2,5 км), легенды у камня-загадки Жумбактас в озере. Ужин казахской кухни, ночёвка у Щучьего озера."},{day:"День 2",t:"Аблайхан — Астана",p:"Утро на лугу Аблайхан-хана, лёгкий трек по Кенесары тропе. Возвращение в Астану к 18:00."}],included:["Трансфер","Гид","1 ночёвка + питание","Экосборы","Страховка"]}
+},
+kz:{
+ kolsai:{title:"Көлсай көлдері мен Қайынды",region:"Алматы облысы",tagline:"Тянь-Шаньнің інжу-маржандары: үш көгілдір көл және Қайындыдағы суасты самырсын орманы.",duration:"2 күн / 1 түн",diffLabel:"Жеңіл трек",group:"8 адамға дейін",season:"сәуір — қазан",start:"Алматы",highlights:["Төменгі және Ортаңғы Көлсай көлдері","Қайынды көліндегі су астындағы орман","Ұйылдық асуы және Алтын-Таш көрінісі","Саты ауылындағы таулы қонақүйде түнектеу"],itinerary:[{day:"1-күн",t:"Саты — Қайынды — Төменгі көл",p:"Алматыдан 07:00-де шығу. Құлжа жолы, Саты ауылында тоқтау. Түстен кейін — Қайындыға көтерілу: көгілдір судағы құрғақ самырсындар, жағамен серуендеу. Кешке — от басында кешкі ас және қонақүйде түнектеу."},{day:"2-күн",t:"Үш көл трекі",p:"Төменгі көлден Ортаңғы Көлсай көліне жеңіл трек (8 км, +300 м). Айнадай бетте фотопауза, Іле Алатауы шыңдарына қарап шай. 21:00-де Алматыға оралу."}],included:["Жол талғамайтын көлікпен трансфер","Гид-жолсерік","1 түнектеу + тамақ","Саябақ экотөлемдері","Сақтандыру"]},
+ bozzhyra:{title:"Маңғыстау: Бозжыра мен Үстірт",region:"Маңғыстау облысы",tagline:"Ежелгі мұхит түбіне экспедиция — бор шатқалдары, қоқпала және Бозжыраның атақты «азу тістері».",duration:"3 күн / 2 түн",diffLabel:"Экспедиция",group:"6 адамға дейін",season:"мамыр — қазан",start:"Ақтау",highlights:["Үстірт жартастары мен Қосақ-қазқан","Таң сәресінде Бозжыра «азу тістері»","Бектіата шатқалы мен Шербала тауы","Даладағы глэмпингте түнектеу"],itinerary:[{day:"1-күн",t:"Үстірт платосы",p:"Ақтауға ұшып бару, жол талғамайтын көліктермен шығу. Үстірт жартастары, Қосақ-қазқан байқау алаңында күн батуы. От басында кешкі ас, глэмпингте түнектеу."},{day:"2-күн",t:"Бозжыра",p:"«Азу тістер» жанында таң шапағы, бор платосымен трек (6 км), ақ шатқалда пикник. Айдын аспанда жұлдыз түсірімі."},{day:"3-күн",t:"Бектіата — Ақтау",p:"Бектіата шатқалының қызғылт жоталары, Шербала тауы. Кешке Ақтауға оралу, әуежайға трансфер."}],included:["Жол талғамайтын көлік экипажы","Гид-геолог","Глэмпинг 2 түн + тамақ","Пермиттер мен экотөлемдер","Фотограф","Сақтандыру"]},
+ charyn:{title:"Шарын шатқалы",region:"Алматы облысы",tagline:"«Қамалдар аңғары»: 12 миллион жылдық қызыл құмтас қабатының 150 метр тереңдігі.",duration:"1 күн",diffLabel:"Жеңіл",group:"10 адамға дейін",season:"жыл бойы",start:"Алматы",highlights:["Қамалдар аңғары — маршруттың бас көрінісі","Ай шатқалы мен «Джын бұралаңы»","Шарын өзені үстіндегі Қара шатқал","Дәстүрлі бауырсақпен пикник"],itinerary:[{day:"1-күн",t:"Қамалдар аңғары",p:"08:00-де шығу. Шатқалға түсу, Шарын өзеніне дейін 3 км жаяу жүру, «Экопаркте» демалыс. Түске — күн батқан жарықта Ай және Қара шатқалдар. 19:00-де Алматыға оралу."}],included:["Трансфер","Гид","Пикник пен шай","Экотөлемдер","Сақтандыру"]},
+ "altyn-emel":{title:"Алтынемел",region:"Алматы облысы",tagline:"Әнші бархан, түрлі-түсті Ақтау мен Қатаутау таулары — шөл шетіндегі ұлттық саябақ.",duration:"2 күн / 1 түн",diffLabel:"Орташа",group:"8 адамға дейін",season:"сәуір — қараша",start:"Алматы",highlights:["Әнші бархан — биіктігі 150 м құм төбе","Ақтау таулары — «бор марсиандары»","Шарған бөгені және 700 жылдық тал","Басши кентінде түнектеу"],itinerary:[{day:"1-күн",t:"Әнші бархан",p:"07:00-де шығу, жол Іле бойымен. Барханға көтерілу: сәт түссе — табан астында құмның үні. Іле аңғарында күн батуы, Басшиде түнектеу."},{day:"2-күн",t:"Ақтау таулары",p:"Ақтаудың ақ, қызғылт және жасыл қабаттары арасында серуен. Шарған бөгені, Қатаутаудың жанартаулық жоталары. 22:00-де Алматыға оралу."}],included:["Жол талғамайтын көлікпен трансфер","Гид","1 түнектеу + тамақ","Саябақ экотөлемдері","Сақтандыру"]},
+ bao:{title:"Үлкен Алматы көлі",region:"Іле Алатауы",tagline:"Мегаполистен жарты сағат жолдағы теңіз деңгейінен 2511 м биіктіктегі көгілдір тостаған.",duration:"1 күн",diffLabel:"Жеңіл",group:"8 адамға дейін",season:"жыл бойы",start:"Алматы",highlights:["Байқау алаңынан көл панорамасы","Үлкен Алматы шыңы — 3680 м-ге дейін","Жолда Медеу мен Коргау тармағы","Сұңқар құсбегілік фермасы"],itinerary:[{day:"1-күн",t:"2511 биіктігі",p:"09:00-де жиналу, Медеу жанындағы серпантинмен көтерілу. Көл бойымен трек (4 км), жағалауда шай. Сұңқарда жыртқыш құстар шоуына тоқтау, 18:00-ге оралу."}],included:["Трансфер","Гид","Шай мен трейл-ланч","Қорыққа кіру","Сақтандыру"]},
+ burabay:{title:"Бурабай",region:"Ақмола облысы",tagline:"«Қазақ Швейцариясы» — тоғыз көл ортасындағы гранит жартастар мен қарағайлы ормандар.",duration:"2 күн / 1 түн",diffLabel:"Орташа",group:"10 адамға дейін",season:"жыл бойы",start:"Астана",highlights:["Окжетпес — «жетпейтін жебе»","Жұмбақтас — «таңғажайып тас»","Абылайхан жайлауы мен қайың тоғайы","Щучье көлінде күн батуы"],itinerary:[{day:"1-күн",t:"Окжетпес пен Жұмбақтас",p:"Астанадан шығу. Окжетпеске көтерілу (2,5 км), көлдегі Жұмбақтас тасы жанындағы аңыздар. Қазақ тағамдарымен кешкі ас, Щучье жанынан түнектеу."},{day:"2-күн",t:"Абылайхан — Астана",p:"Таңда Аблайхан жайлауында, Кеңесары соқпағы бойынша жеңіл трек. 18:00-де Астанаға оралу."}],included:["Трансфер","Гид","1 түнектеу + тамақ","Экотөлемдер","Сақтандыру"]}
+},
+en:{
+ kolsai:{title:"Kolsai Lakes & Kaindy",region:"Almaty Region",tagline:"Pearls of the Tian Shan: three turquoise lakes and Kaindy's drowned spruce forest.",duration:"2 days / 1 night",diffLabel:"Easy trek",group:"up to 8 people",season:"April — October",start:"Almaty",highlights:["Lower and Middle Kolsai Lakes","The sunken forest of Lake Kaindy","Uyldyk pass with a view of Altyn-Tash","Overnight in a mountain guesthouse in Saty"],itinerary:[{day:"Day 1",t:"Saty — Kaindy — Lower Lake",p:"Depart Almaty at 7:00 AM via the Kulja road with a stop in the village of Saty. After lunch, head up to Kaindy: dead spruces rising from turquoise water and a walk along the shore. Evening dinner by the fire and a night in a guesthouse."},{day:"Day 2",t:"Trek of the three lakes",p:"Easy trek from the Lower to the Middle Kolsai Lake (8 km, +300 m). A photo stop on the mirror-like surface, tea facing the Ile Alatau peaks. Return to Almaty by 9 PM."}],included:["4x4 transfers","Guide","1 night + meals","Park fees","Insurance"]},
+ bozzhyra:{title:"Mangystau: Bozzhyra & Ustyurt",region:"Mangystau Region",tagline:"An expedition to the floor of an ancient ocean — chalk canyons and the famous Bozzhyra “fangs”.",duration:"3 days / 2 nights",diffLabel:"Expedition",group:"up to 6 people",season:"May — October",start:"Aktau",highlights:["Ustyurt escarpments and Kosak-kazkan overlook","Bozzhyra “fangs” at sunrise","Bektiyata canyon and Sherbala mountain","Overnight in a desert glamping"],itinerary:[{day:"Day 1",t:"Ustyurt Plateau",p:"Fly to Aktau and set off in 4x4s. Ustyurt escarpments and sunset at the Kosak-kazkan lookout. Dinner by the fire, glamping overnight."},{day:"Day 2",t:"Bozzhyra",p:"Sunrise at the Bozzhyra “fangs”, trek across the chalk plateau (6 km), picnic in a white canyon. Astrophotography session if the sky is clear."},{day:"Day 3",t:"Bektiyata — Aktau",p:"Pink ridges of Bektiyata canyon, Sherbala mountain. Return to Aktau by evening, airport transfer."}],included:["4x4 fleet","Guide-geologist","Glamping 2 nights + meals","Permits & park fees","Photographer","Insurance"]},
+ charyn:{title:"Charyn Canyon",region:"Almaty Region",tagline:"The Valley of Castles: 150 metres of red sandstone 12 million years in the making.",duration:"1 day",diffLabel:"Easy",group:"up to 10 people",season:"year-round",start:"Almaty",highlights:["Valley of Castles — the main act of the route","Moon Canyon and the Witch's Gorge","Black Canyon above the swirling Charyn river","Picnic with traditional baursaks"],itinerary:[{day:"Day 1",t:"Valley of Castles",p:"Depart at 8:00 AM. Descend into the canyon and walk 3 km to the Charyn river, with a snack at the EcoPark. Noon — the Moon and Black canyons in golden-hour light. Return to Almaty by 7 PM."}],included:["Transfers","Guide","Picnic & tea","Park fees","Insurance"]},
+ "altyn-emel":{title:"Altyn-Emel",region:"Almaty Region",tagline:"The Singing Dune, multicoloured Aktau and Katutau mountains — a national park on the desert's edge.",duration:"2 days / 1 night",diffLabel:"Moderate",group:"up to 8 people",season:"April — November",start:"Almaty",highlights:["The Singing Dune — a 150 m dune","Aktau mountains — the “chalk Martian”","Shargan oasis and the 700-year-old willow","Overnight stay in Basshi village"],itinerary:[{day:"Day 1",t:"The Singing Dune",p:"Depart at 7:00 AM along the Ili river. Climb the dune: with luck, you'll hear the sand hum beneath your feet. Sunset over the Ili valley, overnight in Basshi."},{day:"Day 2",t:"Aktau Mountains",p:"A walk among the white, pink and green layers of Aktau. Shargan oasis and the volcanic ridges of Katutau. Return to Almaty by 10 PM."}],included:["4x4 transfers","Guide","1 night + meals","Park fees","Insurance"]},
+ bao:{title:"Big Almaty Lake",region:"Ile Alatau",tagline:"A turquoise bowl at 2,511 m — just half an hour from the metropolis.",duration:"1 day",diffLabel:"Easy",group:"up to 8 people",season:"year-round",start:"Almaty",highlights:["Lake panorama from the observation deck","Big Almaty Peak — up to 3,680 m","Medeu and the Korgau gorge along the way","Sunkar falcon farm"],itinerary:[{day:"Day 1",t:"Elevation 2511",p:"Meet at 9:00 AM and climb the serpentine past Medeu. Trek along the lake (4 km), tea on the shore. Stop at Sunkar for the birds-of-prey show, back by 6 PM."}],included:["Transfers","Guide","Tea & trail lunch","Reserve entrance","Insurance"]},
+ burabay:{title:"Burabay",region:"Akmola Region",tagline:"The “Kazakh Switzerland” — granite rocks and pine forests among nine lakes.",duration:"2 days / 1 night",diffLabel:"Moderate",group:"up to 10 people",season:"year-round",start:"Astana",highlights:["Okzhetpes — the “unreachable arrow”","Zhumbaktas — the “riddle stone”","Ablaikhan meadow and the birch grove","Sunset over Lake Shchuchye"],itinerary:[{day:"Day 1",t:"Okzhetpes & Zhumbaktas",p:"Depart Astana. Climb Okzhetpes (2.5 km) and hear legends at the Zhumbaktas riddle stone in the lake. Kazakh-cuisine dinner, overnight near Lake Shchuchye."},{day:"Day 2",t:"Ablaikhan — Astana",p:"Morning at the Ablaikhan meadow, an easy trek along the Kenesary trail. Return to Astana by 6 PM."}],included:["Transfers","Guide","1 night + meals","Park fees","Insurance"]}
+}};
+
+const ADDITIONAL_TOURS={"ru":{"uz-silk":{"title":"Самарканд и Бухара","region":"Узбекистан · Шёлковый путь","tagline":"Два легендарных города, бирюзовые купола, старинные медресе и тёплая атмосфера восточных базаров.","duration":"4 дня / 3 ночи","diffLabel":"Комфортный","group":"по запросу","season":"март — ноябрь","start":"Самарканд","highlights":["Площадь Регистан и ансамбль Шахи-Зинда","Мечеть Биби-Ханым и местные базары","Ансамбль Пои-Калян и Ляби-Хауз","Гастрономия и ремёсла Бухары"],"itinerary":[{"day":"День 1","t":"Первое знакомство с Самаркандом","p":"Прибытие, прогулка по центральным кварталам и вечерний Регистан."},{"day":"День 2","t":"История Самарканда","p":"Шахи-Зинда, Биби-Ханым, колоритный Сиабский базар."},{"day":"День 3","t":"Дорога в Бухару","p":"Переезд, знакомство с историческим центром и ансамблем Ляби-Хауз."},{"day":"День 4","t":"Старая Бухара","p":"Пои-Калян, ремесленные ряды и завершение маршрута."}],"included":["Подбор программы","Консультация по логистике","Варианты размещения"]},"uz-khiva":{"title":"Хива — город за стенами","region":"Узбекистан · Хорезм","tagline":"Глинобитные крепостные стены, резные колонны, минареты и ощущение живой истории.","duration":"3 дня / 2 ночи","diffLabel":"Комфортный","group":"по запросу","season":"апрель — октябрь","start":"Ургенч","highlights":["Ичан-Кала — город-музей","Минарет Кальта-Минар","Дворец Таш-Хаули и Джума-мечеть","Крепости древнего Хорезма — по согласованию"],"itinerary":[{"day":"День 1","t":"Ворота Ичан-Калы","p":"Встреча в Ургенче, переезд в Хиву и первая прогулка внутри крепостных стен."},{"day":"День 2","t":"Истории старого города","p":"Медресе, дворцы, минареты и мастерские резчиков по дереву."},{"day":"День 3","t":"Хорезмские пейзажи","p":"Свободное утро или выезд к крепостям по согласованному маршруту."}],"included":["Подбор программы","Консультация по логистике","Варианты размещения"]},"uz-chimgan":{"title":"Чимган и озеро Чарвак","region":"Узбекистан · Ташкентская область","tagline":"Горный отдых недалеко от Ташкента: смотровые площадки, живописные долины и лазурная вода.","duration":"2 дня / 1 ночь","diffLabel":"Активный","group":"по запросу","season":"апрель — октябрь","start":"Ташкент","highlights":["Панорамы Чимганских гор","Чарвакское водохранилище","Неспешные прогулки и фотостопы","Горное размещение — по запросу"],"itinerary":[{"day":"День 1","t":"В сторону гор","p":"Выезд из Ташкента, дорога к Чимгану, видовые остановки и горный вечер."},{"day":"День 2","t":"Чарвак и возвращение","p":"Прогулка у водохранилища, время на отдых и обратная дорога в Ташкент."}],"included":["Подбор программы","Консультация по логистике","Варианты размещения"]},"kg-issyk":{"title":"Иссык-Куль и Каракол","region":"Кыргызстан · Иссык-Кульская область","tagline":"Большое озеро среди гор, красные скалы Джеты-Огуза и уютный Каракол.","duration":"4 дня / 3 ночи","diffLabel":"Комфортный","group":"по запросу","season":"май — сентябрь","start":"Бишкек","highlights":["Побережье озера Иссык-Куль","Ущелье Джеты-Огуз","Каракол и местная кухня","Панорамы Тянь-Шаня"],"itinerary":[{"day":"День 1","t":"Бишкек — Иссык-Куль","p":"Переезд к озеру, остановки по дороге и отдых у воды."},{"day":"День 2","t":"Северный берег","p":"Прогулки вдоль побережья и знакомство с приозёрными местами."},{"day":"День 3","t":"Каракол и Джеты-Огуз","p":"Поездка к красным скалам и знакомство с Караколом."},{"day":"День 4","t":"Возвращение","p":"Дорога в Бишкек с остановками на видовых точках."}],"included":["Подбор программы","Консультация по логистике","Варианты размещения"]},"kg-songkul":{"title":"Сон-Куль и юртовый лагерь","region":"Кыргызстан · Нарынская область","tagline":"Высокогорные луга, ночи под звёздами и знакомство с кочевыми традициями.","duration":"3 дня / 2 ночи","diffLabel":"Активный","group":"по запросу","season":"июнь — сентябрь","start":"Бишкек","highlights":["Озеро Сон-Куль на высоте около 3000 м","Ночёвка в традиционной юрте","Пастбища и табуны лошадей","Закатные панорамы"],"itinerary":[{"day":"День 1","t":"Дорога к озеру","p":"Путь из Бишкека в Нарынскую область, подъём к высокогорным пастбищам."},{"day":"День 2","t":"Жизнь на джайлоо","p":"Прогулки у озера, знакомство с юртовым бытом и свободное время."},{"day":"День 3","t":"Обратно в Бишкек","p":"Горные виды по пути назад; время в дороге зависит от погоды."}],"included":["Подбор программы","Консультация по логистике","Варианты размещения"]},"kg-alaar":{"title":"Ала-Арча — день в горах","region":"Кыргызстан · Чуйская область","tagline":"Альпийские ущелья, хвойные склоны и горные тропы недалеко от Бишкека.","duration":"1 день","diffLabel":"Активный","group":"по запросу","season":"май — октябрь","start":"Бишкек","highlights":["Национальный парк Ала-Арча","Виды заснеженных вершин","Прогулки по доступным тропам","Горная река и пикник"],"itinerary":[{"day":"День 1","t":"Парк Ала-Арча","p":"Выезд из Бишкека, прогулка по выбранной тропе с учётом погоды и подготовки, возвращение в город."}],"included":["Подбор программы","Консультация по логистике","Варианты размещения"]},"tm-darvaza":{"title":"Ашхабад и пустыня Каракумы","region":"Туркменистан · Ашхабад и Дарваза","tagline":"Беломраморная столица, песчаные просторы и знаменитый газовый кратер Дарваза.","duration":"3 дня / 2 ночи","diffLabel":"Комфортный","group":"по запросу","season":"по согласованию","start":"Ашхабад","highlights":["Современная архитектура Ашхабада","Пустынные пейзажи Каракумов","Кратер Дарваза при доступности посещения","Вечер в пустыне — по согласованию"],"itinerary":[{"day":"День 1","t":"Знакомство с Ашхабадом","p":"Прибытие и обзорная прогулка по городу в рамках согласованной программы."},{"day":"День 2","t":"Дорога в Каракумы","p":"Выезд к Дарвазе, если район открыт и посещение согласовано; ночёвка по программе."},{"day":"День 3","t":"Возвращение","p":"Возвращение в Ашхабад и завершение путешествия."}],"included":["Подбор программы","Консультация по логистике","Варианты размещения"]},"tm-merv":{"title":"Древний Мерв и Мары","region":"Туркменистан · Марыйский велаят","tagline":"Путешествие к памятникам Великого шёлкового пути и древним городищам Мерва.","duration":"2 дня / 1 ночь","diffLabel":"Комфортный","group":"по запросу","season":"по согласованию","start":"Мары","highlights":["Археологический парк Древний Мерв","Руины Гяур-Калы и Султан-Калы","Мавзолей султана Санджара","История Шёлкового пути"],"itinerary":[{"day":"День 1","t":"Мары и древние города","p":"Прибытие в Мары, выезд к археологическим комплексам по согласованному маршруту."},{"day":"День 2","t":"Памятники Мерва","p":"Осмотр исторических объектов и возвращение. Программа зависит от разрешений."}],"included":["Подбор программы","Консультация по логистике","Варианты размещения"]}},"kz":{"uz-silk":{"title":"Самарқанд пен Бұхара","region":"Өзбекстан · Жібек жолы","tagline":"Көгілдір күмбездері мен тарихи медреселері бар екі көне қалаға саяхат.","duration":"4 күн / 3 түн","diffLabel":"Ыңғайлы","group":"сұраныс бойынша","season":"наурыз — қараша","start":"Самарқанд","highlights":["Регистан алаңы мен Шахи-Зинда","Бибі-Ханым мешіті және базарлар","Пои-Калян мен Ляби-Хауз","Бұхараның асханасы мен қолөнері"],"itinerary":[{"day":"1-күн","t":"Самарқандпен танысу","p":"Келу, ескі қаладағы серуен және кешкі Регистан."},{"day":"2-күн","t":"Самарқанд тарихы","p":"Шахи-Зинда, Бибі-Ханым және Сиаб базары."},{"day":"3-күн","t":"Бұхараға жол","p":"Қалалар арасындағы сапар, тарихи орталық пен Ляби-Хауз."},{"day":"4-күн","t":"Көне Бұхара","p":"Пои-Калян, қолөнер орындары және сапардың аяқталуы."}],"included":["Бағдарламаны іріктеу","Логистика бойынша кеңес","Тұру нұсқалары"]},"uz-khiva":{"title":"Хиуа — көне шаһар","region":"Өзбекстан · Хорезм","tagline":"Қамал қабырғалары, биік мұнаралар мен көне қаланың ерекше атмосферасы.","duration":"3 күн / 2 түн","diffLabel":"Ыңғайлы","group":"сұраныс бойынша","season":"сәуір — қазан","start":"Үргеніш","highlights":["Ичан-Кала мұражай-қаласы","Кальта-Минар мұнарасы","Таш-Хаули сарайы және Жұма мешіті","Келісім бойынша Хорезм қамалдары"],"itinerary":[{"day":"1-күн","t":"Ичан-Калаға сапар","p":"Үргеніштен Хиуаға жетіп, ескі қаланы аралау."},{"day":"2-күн","t":"Көне қаланың тарихы","p":"Медреселер, сарайлар, мұнаралар және қолөнер шеберханалары."},{"day":"3-күн","t":"Хорезм көріністері","p":"Бос таң немесе келісім бойынша қамалдарға саяхат."}],"included":["Бағдарламаны іріктеу","Логистика бойынша кеңес","Тұру нұсқалары"]},"uz-chimgan":{"title":"Шымған және Шарвақ","region":"Өзбекстан · Ташкент облысы","tagline":"Ташкент маңындағы тау алқаптары мен көгілдір су қоймасы.","duration":"2 күн / 1 түн","diffLabel":"Белсенді","group":"сұраныс бойынша","season":"сәуір — қазан","start":"Ташкент","highlights":["Шымған тауларының көрінісі","Шарвақ су қоймасы","Серуендер мен фото аялдамалар","Тау қонақүйі — сұраныс бойынша"],"itinerary":[{"day":"1-күн","t":"Тауға жол","p":"Ташкенттен шығу, көрініс алаңдары мен таудағы кеш."},{"day":"2-күн","t":"Шарвақ","p":"Су қоймасы маңында серуен, демалыс және қалаға қайту."}],"included":["Бағдарламаны іріктеу","Логистика бойынша кеңес","Тұру нұсқалары"]},"kg-issyk":{"title":"Ыстықкөл және Қаракөл","region":"Қырғызстан · Ыстықкөл облысы","tagline":"Таулар арасындағы көл, Жеті-Өгүздің қызыл жартастары мен Қаракөл қаласы.","duration":"4 күн / 3 түн","diffLabel":"Ыңғайлы","group":"сұраныс бойынша","season":"мамыр — қыркүйек","start":"Бішкек","highlights":["Ыстықкөл жағалауы","Жеті-Өгүз шатқалы","Қаракөл және ұлттық тағамдар","Тянь-Шань панорамалары"],"itinerary":[{"day":"1-күн","t":"Бішкек — Ыстықкөл","p":"Көлге сапар және жағалауда демалу."},{"day":"2-күн","t":"Солтүстік жағалау","p":"Көл маңындағы көрікті орындарды аралау."},{"day":"3-күн","t":"Қаракөл мен Жеті-Өгүз","p":"Қызыл жартастар мен Қаракөлге сапар."},{"day":"4-күн","t":"Қайту","p":"Бішкекке көрініс нүктелері арқылы қайту."}],"included":["Бағдарламаны іріктеу","Логистика бойынша кеңес","Тұру нұсқалары"]},"kg-songkul":{"title":"Соңкөл және киіз үй лагері","region":"Қырғызстан · Нарын облысы","tagline":"Биік таулы жайлау, жұлдызды аспан және көшпелі дәстүрлер.","duration":"3 күн / 2 түн","diffLabel":"Белсенді","group":"сұраныс бойынша","season":"маусым — қыркүйек","start":"Бішкек","highlights":["Шамамен 3000 м биіктіктегі Соңкөл","Дәстүрлі киіз үйде түнеу","Жайлау мен жылқы табындары","Күн батардағы тау көріністері"],"itinerary":[{"day":"1-күн","t":"Көлге сапар","p":"Нарын өңірінің таулы жайлауына жол."},{"day":"2-күн","t":"Жайлау өмірі","p":"Көл жағасында серуен, киіз үй тұрмысымен танысу."},{"day":"3-күн","t":"Бішкекке қайту","p":"Ауа райына байланысты тау жолымен қайту."}],"included":["Бағдарламаны іріктеу","Логистика бойынша кеңес","Тұру нұсқалары"]},"kg-alaar":{"title":"Ала-Арча — тау серуені","region":"Қырғызстан · Шу облысы","tagline":"Бішкекке жақын альпілік шатқалдар мен қылқанжапырақты беткейлер.","duration":"1 күн","diffLabel":"Белсенді","group":"сұраныс бойынша","season":"мамыр — қазан","start":"Бішкек","highlights":["Ала-Арча ұлттық паркі","Қарлы шыңдар көрінісі","Жеңіл тау соқпақтары","Өзен жағасындағы демалыс"],"itinerary":[{"day":"1-күн","t":"Ала-Арча паркі","p":"Бішкектен шығу, ауа райы мен дайындыққа сай соқпақ және қалаға қайту."}],"included":["Бағдарламаны іріктеу","Логистика бойынша кеңес","Тұру нұсқалары"]},"tm-darvaza":{"title":"Ашхабад және Қарақұм","region":"Түрікменстан · Ашхабад және Дарваза","tagline":"Ақ мәрмәрлі астана, шөл көріністері және әйгілі Дарваза кратері.","duration":"3 күн / 2 түн","diffLabel":"Ыңғайлы","group":"сұраныс бойынша","season":"келісім бойынша","start":"Ашхабад","highlights":["Ашхабад сәулеті","Қарақұм шөлінің көріністері","Рұқсат болған жағдайда Дарваза","Келісілген шөл бағдарламасы"],"itinerary":[{"day":"1-күн","t":"Ашхабадпен танысу","p":"Қалаға келу және келісілген бағыт бойынша экскурсия."},{"day":"2-күн","t":"Қарақұмға жол","p":"Аймақ ашық әрі рұқсат болса, Дарвазаға бару."},{"day":"3-күн","t":"Қайту","p":"Ашхабадқа оралу және сапарды аяқтау."}],"included":["Бағдарламаны іріктеу","Логистика бойынша кеңес","Тұру нұсқалары"]},"tm-merv":{"title":"Көне Мерв және Мары","region":"Түрікменстан · Мары өңірі","tagline":"Ұлы Жібек жолындағы ежелгі қалалар мен археологиялық ескерткіштерге саяхат.","duration":"2 күн / 1 түн","diffLabel":"Ыңғайлы","group":"сұраныс бойынша","season":"келісім бойынша","start":"Мары","highlights":["Көне Мерв археологиялық паркі","Гяур-Кала мен Сұлтан-Қала","Сұлтан Санжар кесенесі","Жібек жолы тарихы"],"itinerary":[{"day":"1-күн","t":"Мары мен тарихи қалалар","p":"Марыға келу және келісілген бағытпен көне ескерткіштерге бару."},{"day":"2-күн","t":"Мерв мұрасы","p":"Археологиялық орындарды аралау және қайту; рұқсаттарға байланысты."}],"included":["Бағдарламаны іріктеу","Логистика бойынша кеңес","Тұру нұсқалары"]}},"en":{"uz-silk":{"title":"Samarkand & Bukhara","region":"Uzbekistan · Silk Road","tagline":"Two legendary cities of tiled domes, madrasahs, winding bazaars and memorable local cuisine.","duration":"4 days / 3 nights","diffLabel":"Comfortable","group":"on request","season":"March — November","start":"Samarkand","highlights":["Registan Square and Shah-i-Zinda","Bibi-Khanym Mosque and vibrant bazaars","Poi Kalyan and Lyab-i Hauz","Bukhara crafts and local food"],"itinerary":[{"day":"Day 1","t":"Welcome to Samarkand","p":"Arrival, a walk through the historic streets and an evening at Registan."},{"day":"Day 2","t":"The Timurid city","p":"Explore Shah-i-Zinda, Bibi-Khanym and Siab Bazaar."},{"day":"Day 3","t":"On to Bukhara","p":"Transfer and stroll through the old town to Lyab-i Hauz."},{"day":"Day 4","t":"Historic Bukhara","p":"Poi Kalyan and the craft quarters before departure."}],"included":["Custom itinerary","Travel planning advice","Accommodation options"]},"uz-khiva":{"title":"Khiva, the Walled City","region":"Uzbekistan · Khorezm","tagline":"Mud-brick walls, intricate woodwork and a remarkably preserved Silk Road old town.","duration":"3 days / 2 nights","diffLabel":"Comfortable","group":"on request","season":"April — October","start":"Urgench","highlights":["Ichan Kala open-air old town","Kalta Minor minaret","Tash Khauli Palace and Friday Mosque","Ancient Khorezm fortresses on request"],"itinerary":[{"day":"Day 1","t":"Into Ichan Kala","p":"Arrive via Urgench and wander through the old city walls."},{"day":"Day 2","t":"Historic Khiva","p":"Madrasahs, palaces, minarets and woodcarvers’ workshops."},{"day":"Day 3","t":"Khorezm landscapes","p":"Free morning or an optional fortress excursion."}],"included":["Custom itinerary","Travel planning advice","Accommodation options"]},"uz-chimgan":{"title":"Chimgan & Charvak Lake","region":"Uzbekistan · Tashkent Region","tagline":"A refreshing mountain escape with scenic valleys and the blue waters of Charvak.","duration":"2 days / 1 night","diffLabel":"Active","group":"on request","season":"April — October","start":"Tashkent","highlights":["Chimgan mountain views","Charvak reservoir","Easy walks and photo stops","Mountain stay on request"],"itinerary":[{"day":"Day 1","t":"Into the mountains","p":"Leave Tashkent for Chimgan viewpoints and a peaceful mountain evening."},{"day":"Day 2","t":"Charvak and return","p":"Explore the lakeside and return to the city."}],"included":["Custom itinerary","Travel planning advice","Accommodation options"]},"kg-issyk":{"title":"Issyk-Kul & Karakol","region":"Kyrgyzstan · Issyk-Kul Region","tagline":"A vast alpine lake, the red cliffs of Jeti-Oguz and the mountain town of Karakol.","duration":"4 days / 3 nights","diffLabel":"Comfortable","group":"on request","season":"May — September","start":"Bishkek","highlights":["Issyk-Kul shoreline","Jeti-Oguz red rock gorge","Karakol and local food","Tien Shan scenery"],"itinerary":[{"day":"Day 1","t":"Bishkek to Issyk-Kul","p":"Scenic transfer and time to unwind by the lake."},{"day":"Day 2","t":"Northern shore","p":"Explore lakeside stops and mountain panoramas."},{"day":"Day 3","t":"Karakol & Jeti-Oguz","p":"Visit the iconic red cliffs and stroll through Karakol."},{"day":"Day 4","t":"Return","p":"Drive back to Bishkek via scenic viewpoints."}],"included":["Custom itinerary","Travel planning advice","Accommodation options"]},"kg-songkul":{"title":"Song-Kul & Yurt Stay","region":"Kyrgyzstan · Naryn Region","tagline":"Wide summer pastures, nights under stars and a taste of nomadic mountain life.","duration":"3 days / 2 nights","diffLabel":"Active","group":"on request","season":"June — September","start":"Bishkek","highlights":["Song-Kul lake at around 3,000 m","Traditional yurt overnight","Highland meadows and horses","Beautiful sunsets"],"itinerary":[{"day":"Day 1","t":"Into the highlands","p":"Drive from Bishkek into Naryn Province and up to the summer pastures."},{"day":"Day 2","t":"Life on the jailoo","p":"Lakeside walks, yurt hospitality and time to enjoy the landscape."},{"day":"Day 3","t":"Back to Bishkek","p":"Return along mountain roads, weather permitting."}],"included":["Custom itinerary","Travel planning advice","Accommodation options"]},"kg-alaar":{"title":"Ala-Archa Mountain Day","region":"Kyrgyzstan · Chuy Region","tagline":"Alpine valleys, pine-covered slopes and hiking trails close to Bishkek.","duration":"1 day","diffLabel":"Active","group":"on request","season":"May — October","start":"Bishkek","highlights":["Ala-Archa National Park","Snow-capped mountain vistas","Accessible hiking paths","Riverside breaks"],"itinerary":[{"day":"Day 1","t":"Ala-Archa National Park","p":"Depart Bishkek and explore a route suited to the group and weather before returning."}],"included":["Custom itinerary","Travel planning advice","Accommodation options"]},"tm-darvaza":{"title":"Ashgabat & Karakum Desert","region":"Turkmenistan · Ashgabat and Darvaza","tagline":"A marble-clad capital, desert landscapes and the famous Darvaza gas crater.","duration":"3 days / 2 nights","diffLabel":"Comfortable","group":"on request","season":"by arrangement","start":"Ashgabat","highlights":["Contemporary Ashgabat architecture","Karakum Desert landscapes","Darvaza crater if access is permitted","An optional evening in the desert"],"itinerary":[{"day":"Day 1","t":"Discover Ashgabat","p":"Arrival and a city tour according to the confirmed programme."},{"day":"Day 2","t":"Into the Karakum","p":"Travel to Darvaza if the area is open and permits are arranged."},{"day":"Day 3","t":"Return","p":"Drive back to Ashgabat and conclude the journey."}],"included":["Custom itinerary","Travel planning advice","Accommodation options"]},"tm-merv":{"title":"Ancient Merv & Mary","region":"Turkmenistan · Mary Region","tagline":"Explore the Silk Road heritage and extensive archaeological remains of ancient Merv.","duration":"2 days / 1 night","diffLabel":"Comfortable","group":"on request","season":"by arrangement","start":"Mary","highlights":["Ancient Merv archaeological park","Gyaur Kala and Sultan Kala ruins","Sultan Sanjar Mausoleum","Silk Road history"],"itinerary":[{"day":"Day 1","t":"Mary & ancient cities","p":"Arrive in Mary and visit the historic sites on an approved route."},{"day":"Day 2","t":"Heritage of Merv","p":"Explore archaeological landmarks and return, subject to local permissions."}],"included":["Custom itinerary","Travel planning advice","Accommodation options"]}}};
+Object.keys(ADDITIONAL_TOURS).forEach(l=>Object.assign(TT[l],ADDITIONAL_TOURS[l]));
+
+/* ================= ТЕКСТЫ ИНТЕРФЕЙСА ================= */
+const D={"ru":{"title":"COOLTOUR.KZ — путешествия по Центральной Азии","navLinks":[{"h":"#countries","l":"Страны"},{"h":"#tours","l":"Туры"},{"h":"#nature","l":"Впечатления"},{"h":"#faq","l":"Вопросы"},{"h":"#contacts","l":"Контакты"}],"cta":"Подобрать путешествие","cities":"Казахстан · Узбекистан · Кыргызстан · Туркменистан","hero":{"ov":"четыре страны — множество впечатлений","a":"Откройте","b":"Азию","p":"От бирюзовых озёр Тянь-Шаня до древних городов Шёлкового пути. Путешествия по Казахстану, Узбекистану, Кыргызстану и Туркменистану — в вашем ритме.","b1":"Смотреть туры","b2":"Выбрать страну","sl":"места, которые хочется увидеть","sr":"CENTRAL ASIA · 4 DESTINATIONS","stats":[["04","страны для открытий"],["14","идей маршрутов"],["03","языка сайта"],["24/7","заявка в WhatsApp"]]},"countries":{"ov":"01 — география впечатлений","a":"Четыре страны","accent":"одна история","p":"Каждое направление — со своим характером. Выберите страну, чтобы увидеть маршруты и отправить запрос на поездку.","note":"<strong>Индивидуальный подбор.</strong> Даты, маршрут, транспорт и итоговую стоимость согласуем в WhatsApp — без цен, которые могли устареть.","count":"маршрутов","names":["Казахстан","Узбекистан","Кыргызстан","Туркменистан"],"sub":["Каньоны, озёра, степи","Самарканд, Бухара, Хива","Высокогорье и юрты","Ашхабад, Каракумы, Мерв"]},"mq":["Казахстан","Узбекистан","Кыргызстан","Туркменистан","Самарканд","Сон-Куль","Чарын","Древний Мерв"],"tSec":{"ov":"02 — коллекция путешествий","a":"Ваше следующее","acc":"приключение","p":"Выбирайте страну и открывайте программу. Каждый маршрут можно обсудить и адаптировать под ваши даты, состав группы и интересы.","cats":["Все направления","Казахстан","Узбекистан","Кыргызстан","Туркменистан"]},"labs":{"start":"старт:","complexity":"Формат","duration":"Длительность","group":"Группа","season":"Сезон","startPoint":"Начало маршрута:","waits":"Главные впечатления","program":"Примерная программа","request":"Узнать стоимость и даты","pricePer":"Стоимость","book":"Обсудить тур в WhatsApp","waG":"Здравствуйте! Хочу подобрать путешествие по Центральной Азии. Подскажите варианты и стоимость.","waT":"Здравствуйте! Интересует маршрут «{title}». Подскажите даты, программу и актуальную стоимость.","disclaimer":"<strong>Обратите внимание:</strong> программа ориентировочная. Даты, состав услуг и стоимость подтверждаются при согласовании. Для некоторых направлений нужны визы и разрешения."},"nat":{"ov":"03 — вдохновение","a":"Азия","b":"без","c":"границ","paras":["Центральная Азия удивляет контрастами: в один день — горные озёра и хвойные долины, в другой — минареты древних городов и золотые пески пустынь.","Здесь путешествие складывается из деталей: утренний чай у гор, узорчатая плитка Самарканда, ночь в юрте и дороги, ведущие к новым историям."],"feats":[["История и архитектура","Регистан, Бухара, Хива и древний Мерв — города и памятники Шёлкового пути."],["Горы и озёра","Тянь-Шань, Иссык-Куль, Сон-Куль, Кольсай и ущелья Ала-Арчи."],["Необычные пейзажи","Чарынский каньон, Бозжыра, Каракумы и вулканические ландшафты."],["Культура и традиции","Восточные базары, ремесленные кварталы, кухня и гостеприимство региона."]],"chipV":"04","chipL":"страны в одной коллекции","cap1":"Самарканд · Шёлковый путь","cap2":"Кыргызстан · высокогорье","stats":[["04","","страны в каталоге"],["14","","идей для путешествий"],["03","","языка интерфейса"],["01","","диалог для подбора маршрута"]]},"faq":{"ov":"04 — полезно знать","a":"Перед","acc":"поездкой","p":"Остались вопросы о визах, маршрутах или стоимости? Напишите нам — поможем сориентироваться.","items":[["Нужна ли виза для поездки?","Правила въезда зависят от гражданства и страны назначения. Для Туркменистана заранее уточняйте актуальные визовые требования и порядок оформления приглашения. Проверяйте документы до покупки билетов."],["Можно ли изменить программу тура?","Да, направьте нам страну, желаемые даты, количество участников и интересующие места. Программу, логистику и варианты размещения обсудим индивидуально."],["Почему на сайте нет цен?","Цена зависит от дат, транспорта, размещения, состава группы и включённых услуг. Актуальную стоимость уточняйте в WhatsApp до подтверждения бронирования."],["Как отправить заявку?","Откройте карточку тура и нажмите «Обсудить тур в WhatsApp». Готовое сообщение с названием маршрута появится автоматически."],["Что с маршрутами по Туркменистану?","Въезд, посещение некоторых районов и маршруты могут требовать отдельного согласования или разрешений. Программы и возможность посещения Дарвазы проверяются до оформления."]]},"con":{"ov":"05 — на связи","a":"Выбирайте","b":"свой маршрут","phoneL":"Телефон / WhatsApp","address":"Организация путешествий по Центральной Азии","hours":"Программа, даты и стоимость — по запросу","channels":[["whatsapp","WhatsApp","+7 701 479-09-39","Обсудить маршрут и узнать стоимость"],["telegram","Telegram","@cooltour_kz","Вопросы о поездках"],["instagram","Instagram","@cooltour.kz","Идеи для путешествий"],["email","Почта","hello@cooltour.kz","Для индивидуальных запросов"]],"top":"Наверх","rights":"© 2026 COOLTOUR.KZ · Центральная Азия"},"credits":"Фото и источники"},"kz":{"title":"COOLTOUR.KZ — Орталық Азияға саяхат","navLinks":[{"h":"#countries","l":"Елдер"},{"h":"#tours","l":"Турлар"},{"h":"#nature","l":"Әсерлер"},{"h":"#faq","l":"Сұрақтар"},{"h":"#contacts","l":"Байланыс"}],"cta":"Саяхат таңдау","cities":"Қазақстан · Өзбекстан · Қырғызстан · Түрікменстан","hero":{"ov":"төрт ел — сансыз әсер","a":"Азияны","b":"ашыңыз","p":"Тянь-Шань көлдерінен Жібек жолының тарихи қалаларына дейін. Қазақстан, Өзбекстан, Қырғызстан және Түрікменстан бойынша саяхат идеялары.","b1":"Турларды көру","b2":"Елді таңдау","sl":"саяхаттан есте қалатын сәттер","sr":"CENTRAL ASIA · 4 DESTINATIONS","stats":[["04","бағыт елі"],["14","саяхат идеясы"],["03","сайт тілі"],["24/7","WhatsApp өтінімі"]]},"countries":{"ov":"01 — елдер","a":"Төрт ел","accent":"бір саяхат әлемі","p":"Әр елдің табиғаты мен мәдениеті бөлек. Бағытты таңдап, турлармен танысыңыз.","note":"<strong>Жеке іріктеу.</strong> Күнін, маршрутты, көлікті және бағаны WhatsApp арқылы нақтылаймыз.","count":"бағыт","names":["Қазақстан","Өзбекстан","Қырғызстан","Түрікменстан"],"sub":["Шатқалдар, көлдер, дала","Самарқанд, Бұхара, Хиуа","Таулар мен киіз үйлер","Ашхабад, Қарақұм, Мерв"]},"mq":["Қазақстан","Өзбекстан","Қырғызстан","Түрікменстан","Самарқанд","Соңкөл","Шарын","Көне Мерв"],"tSec":{"ov":"02 — саяхаттар","a":"Келесі","acc":"сапарыңыз","p":"Елді таңдап, сапар бағдарламасын ашыңыз. Күндерін, топ құрамын және қызығушылықтарыңызды жеке келісуге болады.","cats":["Барлық бағыттар","Қазақстан","Өзбекстан","Қырғызстан","Түрікменстан"]},"labs":{"start":"бастау:","complexity":"Түрі","duration":"Ұзақтығы","group":"Топ","season":"Маусым","startPoint":"Басталуы:","waits":"Ерекше әсерлер","program":"Үлгі бағдарлама","request":"Баға мен күндерді сұрау","pricePer":"Бағасы","book":"WhatsApp арқылы сұрау","waG":"Сәлеметсіз бе! Орталық Азияға саяхат таңдағым келеді. Бағыттар мен бағасын айтып беріңізші.","waT":"Сәлеметсіз бе! «{title}» маршруты қызықтырады. Күндері, бағдарламасы мен бағасы туралы ақпарат беріңізші.","disclaimer":"<strong>Маңызды:</strong> бағдарлама алдын ала жасалған. Күндер, қызметтер мен баға келісім кезінде нақтыланады. Кей елдерге виза немесе рұқсат қажет."},"nat":{"ov":"03 — шабыт","a":"Азия","b":"шекарасыз","c":"әсерлер","paras":["Орталық Азияның табиғаты сан қырлы: тау көлдері, қылқанжапырақты аңғарлар, көне қалалардың мұнаралары мен кең шөлдер.","Таңғы тау шайы, Самарқандтың өрнекті қабырғалары, киіз үйдегі түн және жаңа әсерге толы жолдар."],"feats":[["Тарих және сәулет","Регистан, Бұхара, Хиуа және көне Мерв — Жібек жолының мұрасы."],["Таулар мен көлдер","Тянь-Шань, Ыстықкөл, Соңкөл, Көлсай және Ала-Арча."],["Ерекше ландшафт","Шарын, Бозжыра және Қарақұм шөлдері."],["Мәдениет пен дәстүр","Базарлар, қолөнер, ұлттық тағамдар және қонақжайлық."]],"chipV":"04","chipL":"бір топтамадағы ел","cap1":"Самарқанд · Жібек жолы","cap2":"Қырғызстан · тау әлемі","stats":[["04","","каталогтағы ел"],["14","","саяхат идеясы"],["03","","интерфейс тілі"],["01","","саяхатқа сұраныс"]]},"faq":{"ov":"04 — пайдалы ақпарат","a":"Саяхатқа","acc":"дайындық","p":"Виза, бағдарлама немесе баға туралы сұрақ болса, WhatsApp арқылы жазыңыз.","items":[["Виза керек пе?","Кіру ережелері азаматтық пен баратын елге байланысты. Түрікменстанға шақыру және виза талаптарын алдын ала ресми дереккөзден тексеріңіз."],["Бағдарламаны өзгертуге бола ма?","Иә. Елді, күндерін, қатысушылар санын және қызықтырған орындарды жазыңыз."],["Неге бағалар жоқ?","Құны күнге, көлікке, тұру орнына және топ құрамына байланысты. Нақты бағаны WhatsApp арқылы анықтаңыз."],["Турға қалай сұраныс жіберемін?","Бағыт карточкасын ашып немесе картадан көрікті орындарды таңдап, WhatsApp батырмасын басыңыз."],["Түрікменстан сапары қалай жоспарланады?","Кіруге және кей орындарға баруға қосымша рұқсат қажет болуы мүмкін. Дарвазаға бару мүмкіндігі алдын ала тексеріледі."]]},"con":{"ov":"05 — байланыс","a":"Өз бағытыңды","b":"таңда","phoneL":"Телефон / WhatsApp","address":"Орталық Азия бойынша саяхаттар","hours":"Бағдарлама, мерзім және баға — сұраныс бойынша","channels":[["whatsapp","WhatsApp","+7 701 479-09-39","Бағыт пен бағаны нақтылау"],["telegram","Telegram","@cooltour_kz","Саяхат сұрақтары"],["instagram","Instagram","@cooltour.kz","Саяхат идеялары"],["email","Пошта","hello@cooltour.kz","Жеке өтінімдер"]],"top":"Жоғарыға","rights":"© 2026 COOLTOUR.KZ · Орталық Азия"},"credits":"Фотосуреттер мен дереккөздер"},"en":{"title":"COOLTOUR.KZ — explore Central Asia","navLinks":[{"h":"#countries","l":"Countries"},{"h":"#tours","l":"Tours"},{"h":"#nature","l":"Discover"},{"h":"#faq","l":"FAQ"},{"h":"#contacts","l":"Contact"}],"cta":"Plan a journey","cities":"Kazakhstan · Uzbekistan · Kyrgyzstan · Turkmenistan","hero":{"ov":"four countries — endless discoveries","a":"Discover","b":"Asia","p":"From the turquoise lakes of the Tien Shan to ancient Silk Road cities. Discover Kazakhstan, Uzbekistan, Kyrgyzstan and Turkmenistan at your own pace.","b1":"Explore tours","b2":"Choose a country","sl":"places worth discovering","sr":"CENTRAL ASIA · 4 DESTINATIONS","stats":[["04","countries to discover"],["14","travel ideas"],["03","website languages"],["24/7","WhatsApp enquiries"]]},"countries":{"ov":"01 — destinations","a":"Four countries","accent":"one great region","p":"Every destination has its own character. Choose a country to explore its suggested itineraries.","note":"<strong>Tailored planning.</strong> Dates, route, transfers and final pricing are discussed via WhatsApp.","count":"itineraries","names":["Kazakhstan","Uzbekistan","Kyrgyzstan","Turkmenistan"],"sub":["Canyons, lakes, steppe","Samarkand, Bukhara, Khiva","Mountains and yurts","Ashgabat, Karakum, Merv"]},"mq":["Kazakhstan","Uzbekistan","Kyrgyzstan","Turkmenistan","Samarkand","Song-Kul","Charyn","Ancient Merv"],"tSec":{"ov":"02 — the collection","a":"Your next","acc":"adventure","p":"Select a country and discover an itinerary. Routes can be tailored to your dates, group and interests.","cats":["All destinations","Kazakhstan","Uzbekistan","Kyrgyzstan","Turkmenistan"]},"labs":{"start":"starts:","complexity":"Style","duration":"Duration","group":"Group","season":"Season","startPoint":"Starting point:","waits":"Highlights","program":"Suggested itinerary","request":"Ask for dates & price","pricePer":"Price","book":"Discuss on WhatsApp","waG":"Hello! I would like to plan a trip in Central Asia. Could you share itineraries and prices?","waT":"Hello! I am interested in “{title}”. Please share available dates, the itinerary and a current quote.","disclaimer":"<strong>Please note:</strong> itineraries are suggestions. Dates, inclusions and prices are confirmed when arranging the trip. Some destinations require visas or travel permits."},"nat":{"ov":"03 — inspiration","a":"Asia","b":"without","c":"borders","paras":["Central Asia is full of contrast: alpine lakes and wooded valleys, majestic Silk Road architecture and vast golden deserts.","Memorable travel is made of small moments: tea beside a mountain, mosaics in Samarkand, a night in a yurt and roads leading to new stories."],"feats":[["Heritage & architecture","Registan, Bukhara, Khiva and ancient Merv — Silk Road treasures."],["Mountains & lakes","Tien Shan, Issyk-Kul, Song-Kul, Kolsai and Ala-Archa."],["Extraordinary landscapes","Charyn Canyon, Bozzhyra, the Karakum Desert and dramatic canyons."],["Culture & traditions","Traditional markets, craft quarters, local cuisines and warm hospitality."]],"chipV":"04","chipL":"countries in the collection","cap1":"Samarkand · Silk Road","cap2":"Kyrgyzstan · mountain country","stats":[["04","","countries to explore"],["14","","suggested trips"],["03","","website languages"],["01","","conversation to start planning"]]},"faq":{"ov":"04 — good to know","a":"Before","acc":"you go","p":"Questions about visas, routes or pricing? Send us a WhatsApp message.","items":[["Do I need a visa?","Entry requirements depend on nationality and destination. For Turkmenistan, verify current visa and invitation procedures before booking flights."],["Can I customise an itinerary?","Yes. Tell us your destination, dates, group size and places of interest to discuss a tailored route."],["Why are no prices displayed?","Costs change with dates, transport, hotels and group size. Ask for an up-to-date quote before confirming."],["How do I send an enquiry?","Open a route card or use the planner map, then tap “Discuss on WhatsApp” to open a prefilled message."],["What about Turkmenistan?","Entry and access to some locations may require special arrangements. Confirm the possibility of visiting Darvaza before making travel plans."]]},"con":{"ov":"05 — get in touch","a":"Find your","b":"next journey","phoneL":"Phone / WhatsApp","address":"Travel experiences across Central Asia","hours":"Itinerary, dates and prices — on request","channels":[["whatsapp","WhatsApp","+7 701 479-09-39","Plan a route and ask for a quote"],["telegram","Telegram","@cooltour_kz","Travel enquiries"],["instagram","Instagram","@cooltour.kz","Travel inspiration"],["email","Email","hello@cooltour.kz","Custom travel enquiries"]],"top":"Back to top","rights":"© 2026 COOLTOUR.KZ · Central Asia"},"credits":"Photography & sources"}};
+
+
+const PLANNER_UI={
+ ru:{placesHeading:'Достопримечательности',selectedCount:'выбрано',nav:'Маршрут',ov:'Конструктор маршрута',a:'Соберите',acc:'свой маршрут',p:'Выберите страну, отметьте интересующие достопримечательности и отправьте запрос в WhatsApp. Принимающая сторона уже дальше согласует детали, логистику и стоимость.',legend:'Отмечайте места на карте или в списке — они добавятся в ваш маршрут.',panelK:'Индивидуальный запрос',panelH:'Ваш маршрут',cityL:'Город / города',placesL:'Выбранные места',tip:'После выбора вы перейдёте в WhatsApp с уже заполненным сообщением. Там можно обсудить даты, трансфер, гостиницу и итоговую программу.',reset:'Очистить',wa:'Обсудить в WhatsApp',empty:'Выберите достопримечательности на карте',mapSmall:'Страна',message:'Здравствуйте! Хочу собрать маршрут по {country}. Интересуют города: {cities}. Достопримечательности: {places}. Подскажите, пожалуйста, программу, логистику и стоимость.'},
+ kz:{placesHeading:'Көрікті орындар',selectedCount:'таңдалды',nav:'Маршрут',ov:'Маршрут конструкторы',a:'Өз',acc:'маршрутыңызды',p:'Елді таңдап, қызықтырған көрікті орындарды белгілеңіз де, WhatsApp арқылы сұраныс жіберіңіз. Әрі қарай қабылдаушы тарап бағдарламаны, логистиканы және бағаны келіседі.',legend:'Картадан немесе тізімнен орындарды таңдап, маршрутыңызға қосыңыз.',panelK:'Жеке сұраныс',panelH:'Сіздің маршрутыңыз',cityL:'Қала / қалалар',placesL:'Таңдалған орындар',tip:'Таңдаудан кейін сіз WhatsApp-қа дайын хабарламамен өтесіз. Сол жерде күндер, трансфер, қонақүй және бағдарлама талқыланады.',reset:'Тазарту',wa:'WhatsApp-та талқылау',empty:'Картадан көрікті орындарды таңдаңыз',mapSmall:'Ел',message:'Сәлеметсіз бе! {country} бойынша маршрут құрастырғым келеді. Қызықтыратын қалалар: {cities}. Көрікті орындар: {places}. Бағдарлама, логистика және бағасын айтып жіберіңізші.'},
+ en:{placesHeading:'Landmarks',selectedCount:'selected',nav:'Planner',ov:'Route planner',a:'Build',acc:'your route',p:'Choose a country, mark the landmarks you want to visit and send your enquiry via WhatsApp. The receiving side can then discuss details, logistics and pricing with the guest.',legend:'Tap the map markers or choose landmarks from the list to build your route.',panelK:'Custom enquiry',panelH:'Your route',cityL:'City / cities',placesL:'Selected places',tip:'After selection you will open WhatsApp with a prefilled message. Then you can discuss dates, transfers, hotels and the final route.',reset:'Clear selection',wa:'Discuss on WhatsApp',empty:'Select landmarks on the map',mapSmall:'Country',message:'Hello! I would like to build a route in {country}. Cities of interest: {cities}. Landmarks: {places}. Please share itinerary options, logistics and pricing.'}
+};
+const PLACES=[
+ {id:'kz-bao',country:'kz',x:58,y:63,city:{ru:'Алматы',kz:'Алматы',en:'Almaty'},title:{ru:'Большое Алматинское озеро',kz:'Үлкен Алматы көлі',en:'Big Almaty Lake'}},
+ {id:'kz-charyn',country:'kz',x:76,y:45,city:{ru:'Алматы',kz:'Алматы',en:'Almaty'},title:{ru:'Чарынский каньон',kz:'Шарын шатқалы',en:'Charyn Canyon'}},
+ {id:'kz-kolsai',country:'kz',x:84,y:78,city:{ru:'Саты',kz:'Саты',en:'Saty'},title:{ru:'Кольсай и Каинды',kz:'Көлсай мен Қайыңды',en:'Kolsai & Kaindy'}},
+ {id:'kz-bozzhyra',country:'kz',x:16,y:61,city:{ru:'Актау',kz:'Ақтау',en:'Aktau'},title:{ru:'Бозжыра',kz:'Бозжыра',en:'Bozzhyra'}},
+ {id:'kz-burabay',country:'kz',x:48,y:20,city:{ru:'Астана',kz:'Астана',en:'Astana'},title:{ru:'Бурабай',kz:'Бурабай',en:'Burabay'}},
+ {id:'uz-samarkand',country:'uz',x:48,y:47,city:{ru:'Самарканд',kz:'Самарқанд',en:'Samarkand'},title:{ru:'Регистан',kz:'Регистан',en:'Registan'}},
+ {id:'uz-bukhara',country:'uz',x:32,y:40,city:{ru:'Бухара',kz:'Бұхара',en:'Bukhara'},title:{ru:'Пои-Калян',kz:'Пои-Калян',en:'Poi-Kalyan'}},
+ {id:'uz-khiva',country:'uz',x:18,y:37,city:{ru:'Хива',kz:'Хиуа',en:'Khiva'},title:{ru:'Ичан-Кала',kz:'Ичан-Қала',en:'Itchan Kala'}},
+ {id:'uz-charvak',country:'uz',x:69,y:26,city:{ru:'Ташкент',kz:'Ташкент',en:'Tashkent'},title:{ru:'Чимган и Чарвак',kz:'Шымған мен Шарвақ',en:'Chimgan & Charvak'}},
+ {id:'kg-alaar',country:'kg',x:31,y:30,city:{ru:'Бишкек',kz:'Бішкек',en:'Bishkek'},title:{ru:'Ала-Арча',kz:'Ала-Арша',en:'Ala-Archa'}},
+ {id:'kg-issyk',country:'kg',x:57,y:34,city:{ru:'Чолпон-Ата',kz:'Шолпан-Ата',en:'Cholpon-Ata'},title:{ru:'Иссык-Куль',kz:'Ыстықкөл',en:'Issyk-Kul'}},
+ {id:'kg-songkul',country:'kg',x:45,y:56,city:{ru:'Нарын',kz:'Нарын',en:'Naryn'},title:{ru:'Сон-Куль',kz:'Соңкөл',en:'Song-Kul'}},
+ {id:'kg-jety',country:'kg',x:71,y:47,city:{ru:'Каракол',kz:'Қаракөл',en:'Karakol'},title:{ru:'Джеты-Огуз',kz:'Жеті-Өгүз',en:'Jety-Oguz'}},
+ {id:'tm-ashgabat',country:'tm',x:27,y:45,city:{ru:'Ашхабад',kz:'Ашғабат',en:'Ashgabat'},title:{ru:'Беломраморный центр',kz:'Ақ мәрмәр орталық',en:'White marble centre'}},
+ {id:'tm-darvaza',country:'tm',x:50,y:28,city:{ru:'Дарваза',kz:'Дарваза',en:'Darvaza'},title:{ru:'Газовый кратер',kz:'Газ кратері',en:'Gas crater'}},
+ {id:'tm-merv',country:'tm',x:74,y:55,city:{ru:'Мары',kz:'Мары',en:'Mary'},title:{ru:'Древний Мерв',kz:'Ежелгі Мерв',en:'Ancient Merv'}}
+];
+const COUNTRY_META={
+ kz:{name:{ru:'Казахстан',kz:'Қазақстан',en:'Kazakhstan'},sub:{ru:'горы, озёра и каньоны',kz:'таулар, көлдер және шатқалдар',en:'mountains, lakes and canyons'}},
+ uz:{name:{ru:'Узбекистан',kz:'Өзбекстан',en:'Uzbekistan'},sub:{ru:'Шёлковый путь и древние города',kz:'Жібек жолы және көне қалалар',en:'Silk Road and heritage cities'}},
+ kg:{name:{ru:'Кыргызстан',kz:'Қырғызстан',en:'Kyrgyzstan'},sub:{ru:'горные долины и озёра',kz:'таулы аңғарлар мен көлдер',en:'mountain valleys and lakes'}},
+ tm:{name:{ru:'Туркменистан',kz:'Түрікменстан',en:'Turkmenistan'},sub:{ru:'пустыня, Ашхабад и древний Мерв',kz:'шөл, Ашғабат және көне Мерв',en:'desert, Ashgabat and ancient Merv'}}
+};
+const MAP_SHAPES={
+ kz:{base:'M208 150C268 106 372 92 462 104C572 118 662 170 734 236C784 282 808 332 790 386C770 446 716 478 648 486C572 496 516 472 456 498C392 526 340 576 270 572C200 570 156 516 154 450C152 390 196 346 196 296C194 244 164 186 208 150Z',core:'M268 200C338 156 420 156 502 178C572 196 648 236 694 286C730 324 734 370 702 402C664 442 598 444 540 434C466 422 412 444 350 474C298 500 234 488 220 438C206 390 246 344 248 304C252 264 224 228 268 200Z',mini:['M304 236C386 218 454 236 532 258','M328 324C418 338 508 336 590 320','M284 430C354 408 430 404 514 416C578 426 620 428 664 418'],label:{x:270,y:120}},
+ uz:{base:'M220 284C264 238 324 212 384 214C430 216 470 236 508 248C564 266 630 266 674 298C712 326 732 372 710 410C688 446 638 462 596 470C546 480 504 498 452 504C390 512 316 516 272 474C236 440 236 390 226 350C218 322 194 312 220 284Z',core:'M288 294C338 254 400 248 448 256C504 266 548 294 604 306C650 316 688 340 688 382C688 424 642 438 594 442C544 446 508 466 446 472C392 476 326 482 290 446C262 416 270 378 270 342C270 322 268 312 288 294Z',mini:['M304 288C384 306 454 306 532 286','M300 368C372 376 446 372 530 354C580 344 622 344 662 358','M314 440C374 432 436 424 502 426C556 428 602 422 638 410'],label:{x:290,y:150}},
+ kg:{base:'M220 304C286 244 356 230 452 234C544 238 638 246 712 284C764 312 804 350 798 396C792 450 720 470 652 474C570 478 514 498 430 500C352 502 268 488 228 442C184 394 180 340 220 304Z',core:'M284 314C338 278 400 274 486 280C568 286 652 292 712 318C752 336 776 362 770 392C762 428 704 438 640 438C572 438 518 458 436 460C366 460 298 450 268 420C242 394 246 344 284 314Z',mini:['M308 320C402 320 500 322 602 334','M300 384C408 394 512 392 632 378','M330 440C420 438 500 434 584 422'],label:{x:290,y:170}},
+ tm:{base:'M236 284C296 238 372 220 462 218C542 218 614 236 676 274C732 308 760 354 746 394C730 440 668 470 600 478C530 488 478 510 410 506C334 502 252 474 218 426C192 390 194 316 236 284Z',core:'M288 298C334 270 388 262 462 264C532 264 590 280 642 304C688 326 708 356 694 388C678 422 628 438 572 444C514 450 462 468 398 468C336 468 274 446 256 410C242 382 252 324 288 298Z',mini:['M298 302C378 300 446 296 520 300C572 304 628 316 666 330','M300 368C384 376 470 376 564 364C612 358 642 356 678 362','M296 430C370 438 456 436 538 426'],label:{x:300,y:160}}
+};
+
+/* ================= СОСТОЯНИЕ ================= */
+let LANG=localStorage.getItem("ct-lang")||"ru";
+if(!D[LANG])LANG="ru";
+let FILTER="all";
+let PLAN_COUNTRY="kz";
+let PLAN_SELECTED=[];
+let OLD_RV=[]; // наблюдаемые элементы
+const T=()=>D[LANG];
+const TXT=(id)=>TT[LANG][id];
+const esc=(str)=>String(str).replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll("'",'&#39;').replaceAll('<','&lt;');
+const imgHTML=(src,fallback,alt,lazy=true)=>'<img src="'+esc(src)+'" alt="'+esc(alt)+'"'+(lazy?' loading="lazy"':'')+' onerror="this.onerror=null;this.src=\''+esc(fallback)+'\'" />';
+const $=id=>document.getElementById(id);
+
+/* ================= РЕНДЕР ================= */
+function renderLangSwitches(){
+ const btns=["ru","kz","en"].map(l=>'<button data-lang="'+l+'" class="'+(l===LANG?"on":"")+'">'+(l==="ru"?"РУ":l==="kz"?"ҚАЗ":"EN")+'</button>').join("");
+ $("langSwitch").innerHTML=IC.globe+btns;
+ $("langSwitchM").innerHTML=IC.globe+btns;
+}
+function renderNav(){
+ const t=T(),p=PLANNER_UI[LANG];
+ const navItems=[...t.navLinks.slice(0,2),{h:'#planner',l:p.nav},...t.navLinks.slice(2)];
+ $("navLinks").innerHTML=navItems.map(l=>'<a href="'+l.h+'">'+l.l+'</a>').join("");
+ $("navCta").href=WA_HREF(t.labs.waG); $("navCta").textContent=t.cta;
+ $("mmNav").innerHTML=navItems.map((l,i)=>'<a href="'+l.h+'" style="transition-delay:'+(0.08*i+0.1)+'s"><span>0'+(i+1)+'</span>'+l.l+'</a>').join("");
+ $("mmCta").href=WA_HREF(t.labs.waG); $("mmCta").textContent=t.cta;
+ $("mmPhone").textContent=PHONE; $("mmCities").textContent=t.cities;
+ $("footNav").innerHTML=navItems.map(l=>'<a href="'+l.h+'">'+l.l+'</a>').join("")+'<a href="#top">'+t.con.top+'</a>';
+}
+function renderHero(){
+ const h=T().hero;
+ $("heroOv").textContent=h.ov;
+ $("heroTitle").innerHTML='<span class="hl"><span class="hl-in h-a">'+h.a+'</span></span><span class="hl"><span class="hl-in h-b outline">'+h.b+'<span class="dot">.</span></span></span>';
+ $("heroP").textContent=h.p;
+ $("heroBtn1").innerHTML=h.b1+" "+IC.arrow; $("heroBtn2").textContent=h.b2;
+ $("sideR").textContent=h.sr; $("sideL").textContent=h.sl;
+ $("heroStats").innerHTML=h.stats.map(s=>'<div class="stat"><span class="stat-v">'+s[0]+'</span><span class="stat-l">'+s[1]+'</span></div>').join("");
+}
+function renderMarquee(){
+ const row=T().mq.map(i=>'<span class="mq-item"><span>'+i+'</span>'+IC.ast+'</span>').join("");
+ $("mqTrack").innerHTML=row+row;
+}
+function renderCountries(){
+ const c=T().countries;
+ $("countriesOv").textContent=c.ov;
+ $("countriesTitle").innerHTML=c.a+' <span class="serif">'+c.accent+'</span>';
+ $("countriesDesc").textContent=c.p;
+ $("countriesNote").innerHTML=IC.globe+c.note;
+ const countries=[
+ {code:'KZ',id:'kz',img:'img/hero-canyon.jpg',fallback:'img/kazakhstan.svg'},
+ {code:'UZ',id:'uz',img:TOURS.find(t=>t.id==='uz-silk').img,fallback:'img/uzbekistan.svg'},
+ {code:'KG',id:'kg',img:TOURS.find(t=>t.id==='kg-issyk').img,fallback:'img/kyrgyzstan.svg'},
+ {code:'TM',id:'tm',img:'https://commons.wikimedia.org/wiki/Special:FilePath/Turkmenistan_Ashgabat_city.jpg?width=1100',fallback:'img/turkmenistan.svg'}];
+ $("countryGrid").innerHTML=countries.map((x,i)=>{
+  const count=TOURS.filter(t=>t.country===x.id).length;
+  return '<button class="country-tile rv" data-country="'+x.id+'" aria-label="'+esc(c.names[i])+'">'+imgHTML(x.img,x.fallback,c.names[i])+
+  '<span class="country-top"><span class="country-code">'+x.code+'</span><span class="country-count">'+count+' '+c.count+'</span></span>'+
+  '<span class="country-bottom"><span><span class="country-name">'+c.names[i]+'</span><span class="country-sub">'+c.sub[i]+'</span></span><span class="country-arrow">'+IC.arrow+'</span></span></button>';
+ }).join('');
+}
+function renderFilters(){
+ $("tourFilters").innerHTML=CATS.map((c,i)=>'<button class="filter'+(c===FILTER?" on":"")+'" data-filter="'+c+'">'+T().tSec.cats[i]+'</button>').join("");
+}
+function tourCard(b,x){
+ const t=T().labs;
+ return '<article class="card rv" role="button" tabindex="0" aria-label="'+esc(x.title)+'" data-card="'+b.id+'">'+
+ '<div class="card-img">'+imgHTML(b.img,b.fallback,x.title)+
+ '<span class="chip-region">'+esc(T().tSec.cats[CATS.indexOf(b.country)])+'</span><span class="chip-dur">'+x.start+'</span><span class="card-num">'+b.num+'</span></div>'+
+ '<div class="card-body"><div><h3 class="card-title">'+x.title+'</h3><p class="card-tag">'+x.tagline+'</p></div>'+
+ '<div class="params"><span>'+IC.pin+x.start+'</span></div>'+
+ '<div class="card-foot"><p class="request">'+t.request+'</p><span class="arrow-btn">'+IC.arrow+'</span></div></div></article>';
+}
+function renderTours(){
+ const t=T();
+ $("toursOv").textContent=t.tSec.ov;
+ $("toursH2").innerHTML=t.tSec.a+' <br/><span class="serif">'+t.tSec.acc+'</span>';
+ const altDesc={ru:'Выберите страну и откройте карточку направления. Для индивидуального варианта используйте конструктор маршрута ниже.',kz:'Елді таңдап, бағыт карточкасын ашыңыз. Жеке нұсқа үшін төмендегі маршрут конструкторын пайдаланыңыз.',en:'Choose a country and open a destination card. For a custom option, use the route planner below.'};
+ $("toursP").textContent=altDesc[LANG];
+ const list=TOURS.filter(b=>FILTER==="all"||b.country===FILTER);
+ $("toursGrid").innerHTML=list.map(b=>tourCard(b,TXT(b.id))).join("");
+}
+
+function countryName(code){return COUNTRY_META[code].name[LANG];}
+function plannerPlace(id){return PLACES.find(p=>p.id===id);}
+function plannerSelectedPlaces(){return PLAN_SELECTED.map(plannerPlace).filter(Boolean);}
+function plannerMessage(){
+ const ui=PLANNER_UI[LANG];
+ const selected=plannerSelectedPlaces();
+ const cities=selected.length?[...new Set(selected.map(p=>p.city[LANG]))].join(', '):countryName(PLAN_COUNTRY);
+ const places=selected.length?selected.map(p=>p.title[LANG]+' ('+p.city[LANG]+')').join(', '):ui.empty;
+ return fill(ui.message,{country:countryName(PLAN_COUNTRY),cities:cities,places:places});
+}
+function mapY(p){return 20+p.y*.72;}
+function plannerRouteD(points){
+ if(!points.length)return '';
+ const ordered=[...points];
+ if(ordered.length===1)return '';
+ let d=`M ${ordered[0].x*10} ${mapY(ordered[0])*7}`;
+ for(let i=1;i<ordered.length;i++){
+   const a=ordered[i-1],b=ordered[i];
+   const y1=mapY(a)*7,y2=mapY(b)*7;
+   const cx=(a.x+b.x)/2*10;
+   d+=` Q ${cx} ${(y1+y2)/2-20} ${b.x*10} ${y2}`;
+ }
+ return d;
+}
+function renderMapVisual(){
+ const shape=MAP_SHAPES[PLAN_COUNTRY];
+ if(!shape)return;
+ const wrap=$("mapShapeWrap");
+ wrap.innerHTML=`<path class="map-shape" d="${shape.base}"/><path class="map-shape-core" d="${shape.core}"/><path class="map-shape-outline" d="${shape.base}"/>`+
+ (shape.mini||[]).map(d=>`<path class="map-shape-mini" d="${d}"/>`).join('');
+ const selectedSet=new Set(PLAN_SELECTED);
+ const points=PLACES.filter(p=>p.country===PLAN_COUNTRY);
+ $("mapPinsSvg").innerHTML=points.map(p=>{
+   const cx=p.x*10,cy=mapY(p)*7,active=selectedSet.has(p.id);
+   return `<g class="map-pin-svg ${active?'is-active':''}"><circle class="pin-pulse" cx="${cx}" cy="${cy}" r="${active?24:18}"/><circle class="pin-ring" cx="${cx}" cy="${cy}" r="${active?16:12}"/><circle class="pin-node ${active?'active':''}" cx="${cx}" cy="${cy}" r="${active?8.5:6.5}"/></g>`;
+ }).join('');
+ const selectedPoints=points.filter(p=>selectedSet.has(p.id));
+ $("mapRoutePath").setAttribute('d', plannerRouteD(selectedPoints));
+}
+
+function renderPlanner(){
+ const ui=PLANNER_UI[LANG];
+ $("plannerOv").textContent=ui.ov;
+ $("plannerH2").innerHTML=ui.a+' <br/><span class="serif">'+ui.acc+'</span>';
+ $("plannerP").textContent=ui.p;
+ $("plannerLegend").textContent=ui.legend;
+ $("plannerPanelK").textContent=ui.panelK;
+ $("plannerPanelH").textContent=ui.panelH;
+ $("plannerCityL").textContent=ui.cityL;
+ $("plannerPlacesL").textContent=ui.placesL;
+ $("plannerTip").textContent=ui.tip;
+ $("plannerReset").textContent=ui.reset;
+ $("plannerWa").innerHTML=IC.wa+ui.wa;
+ $("plannerWa").href=WA_HREF(plannerMessage());
+ $("plannerCountryFilters").innerHTML=['kz','uz','kg','tm'].map(code=>'<button class="planner-country-btn'+(PLAN_COUNTRY===code?' on':'')+'" data-plan-country="'+code+'">'+countryName(code)+'</button>').join('');
+ const meta=COUNTRY_META[PLAN_COUNTRY];
+ $("mapCountryLabel").innerHTML='<small>'+ui.mapSmall+'</small>'+meta.name[LANG]+'<span>'+meta.sub[LANG]+'</span>';
+ const places=PLACES.filter(p=>p.country===PLAN_COUNTRY);
+ $("mapPins").innerHTML=places.map((p,i)=>{
+   const on=PLAN_SELECTED.includes(p.id);
+   return '<button type="button" class="pin-btn'+(on?' on':'')+'" data-place="'+p.id+'" aria-label="'+esc(p.title[LANG]+', '+p.city[LANG])+'" aria-pressed="'+on+'" style="left:'+p.x+'%;top:'+mapY(p)+'%"><span class="pin-dot">'+(i+1)+'</span><span class="pin-copy"><b>'+p.title[LANG]+'</b><span>'+p.city[LANG]+'</span></span></button>';
+ }).join('');
+ $("plannerPlacesHeading").textContent=ui.placesHeading;
+ $("plannerPlacesCount").textContent=PLAN_SELECTED.length+' '+ui.selectedCount;
+ $("plannerPlaceList").setAttribute('aria-label',ui.placesHeading);
+ $("plannerPlaceList").innerHTML=places.map((p,i)=>{
+   const on=PLAN_SELECTED.includes(p.id);
+   return '<button class="planner-place'+(on?' on':'')+'" type="button" data-place="'+p.id+'" aria-pressed="'+on+'"><span class="planner-place-number">'+String(i+1).padStart(2,'0')+'</span><span class="planner-place-copy"><b>'+p.title[LANG]+'</b><small>'+p.city[LANG]+'</small></span><span class="planner-place-check">'+(on?IC.check:IC.plus)+'</span></button>';
+ }).join('');
+ renderMapVisual();
+ const selected=plannerSelectedPlaces();
+ $("plannerCityV").textContent=selected.length?[...new Set(selected.map(p=>p.city[LANG]))].join(', '):countryName(PLAN_COUNTRY);
+ $("plannerSelected").innerHTML=selected.length?selected.map(p=>'<span class="sel-chip">'+p.title[LANG]+' · '+p.city[LANG]+' <button type="button" data-remove-place="'+p.id+'" aria-label="remove">'+IC.x+'</button></span>').join(''):'<p class="planner-placeholder">'+ui.empty+'</p>';
+}
+
+function renderNature(){
+ const n=T().nat;
+ $("natOv").textContent=n.ov;
+ $("natH2").innerHTML=n.a+' <br/><span class="outline">'+n.b+'</span> <br/>'+n.c;
+ $("natParas").innerHTML=n.paras.map(p=>'<p class="nat-p rv">'+p+'</p>').join("");
+ const icons=[IC.mnt2,IC.rock,IC.water,IC.wind];
+ $("natFeatures").innerHTML=n.feats.map((f,i)=>'<div class="feat rv"><span class="feat-ic">'+icons[i]+'</span><div><h3>'+f[0]+'</h3><p>'+f[1]+'</p></div><span class="feat-num">0'+(i+1)+'</span></div>').join("");
+ $("cap1").textContent=n.cap1; $("cap2").textContent=n.cap2;
+ $("chipV").textContent=n.chipV; $("chipL").textContent=n.chipL;
+ $("natStats").innerHTML=n.stats.map(s=>'<div class="ns-cell rv"><p class="ns-v">'+s[0]+'<em>'+s[1]+'</em></p><p class="ns-l">'+s[2]+'</p></div>').join("");
+}
+function renderFaq(){
+ const f=T().faq;
+ $("faqOv").textContent=f.ov;
+ $("faqH2").innerHTML=f.a+' <br/><span class="serif">'+f.acc+'</span>';
+ $("faqP").textContent=f.p;
+ $("faqList").innerHTML=f.items.map((it,i)=>
+  '<div class="faq-item rv'+(i===0?" open":"")+'"><button class="faq-q"><span class="n">0'+(i+1)+'</span><span class="t">'+it[0]+'</span><span class="faq-plus">'+IC.plus+'</span></button>'+
+  '<div class="faq-a"'+(i===0?' style="max-height:400px"':"")+'><p>'+it[1]+'</p></div></div>').join("");
+}
+const PHOTO_CREDITS=[
+ ['Samarkand / Stomac','https://commons.wikimedia.org/wiki/File:Registan_Samarkand_Uzbekistan.JPG'],
+ ['Khiva / Nassima Chahboun','https://commons.wikimedia.org/wiki/File:Khiva_skyline.jpg'],
+ ['Chimgan / Dan Lundberg','https://commons.wikimedia.org/wiki/File:Uzbekistan_Chimgan_Mountains.jpg'],
+ ['Issyk-Kul / Bgag','https://commons.wikimedia.org/wiki/File:Lake_Issyk-Kul,_Kyrgyzstan.jpg'],
+ ['Song-Kul / Ninara','https://commons.wikimedia.org/wiki/File:Song-Kul,_Kyrgyzstan_(43670184405).jpg'],
+ ['Ashgabat / Kalpak Travel','https://commons.wikimedia.org/wiki/File:Turkmenistan_Ashgabat_city.jpg'],
+ ['Merv / P. Hughes','https://commons.wikimedia.org/wiki/File:Turkmenistan_-_Sultan_Sanjar_mausoleum.jpg'],
+ ['Ala-Archa / Aiyanakk','https://commons.wikimedia.org/wiki/File:Ala-Archa_National_Park_in_Kyrgyzstan.jpg'],
+ ['Darvaza / Kalpak Travel','https://commons.wikimedia.org/wiki/File:Turkmenistan_gas_crater_at_night.jpg']
+];
+function renderCredits(){
+ $("creditsTitle").textContent=T().credits;
+ $("creditsList").innerHTML=PHOTO_CREDITS.map(c=>'<a href="'+esc(c[1])+'" target="_blank" rel="noopener noreferrer">'+esc(c[0])+'</a>').join('');
+}
+function renderContacts(){
+ const c=T().con,t=T().labs;
+ $("fOv").textContent=c.ov;
+ $("fH2").innerHTML=c.a+' <br/><span class="outline-gold">'+c.b+'</span>';
+ $("phoneBlock").href=WA_HREF(t.waG);
+ $("phoneL").textContent=c.phoneL; $("phoneV").textContent=PHONE;
+ $("addrRow").innerHTML=IC.pin+" "+c.address;
+ $("hoursRow").innerHTML=IC.clock+" "+c.hours;
+ const meta={whatsapp:{ic:IC.wa,h:WA_HREF(t.waG),acc:1},telegram:{ic:IC.send,h:"https://t.me/cooltour_kz"},instagram:{ic:IC.insta,h:"https://instagram.com/cooltour.kz"},email:{ic:IC.mail,h:"mailto:hello@cooltour.kz"}};
+ $("channels").innerHTML=c.channels.map(ch=>{const m=meta[ch[0]];
+  return '<a class="channel'+(m.acc?" accent":"")+'" href="'+m.h+'" target="_blank" rel="noreferrer">'+
+  '<div class="ch-top"><span class="ch-ic">'+m.ic+'</span><span class="ch-arr">'+IC.arrow+'</span></div>'+
+  '<div><p class="ch-k">'+ch[1]+'</p><p class="ch-v">'+ch[2]+'</p><p class="ch-h">'+ch[3]+'</p></div></a>';}).join("");
+ $("rights").textContent=c.rights;
+}
+
+/* ================= МОДАЛКА ================= */
+function openModal(id){
+ const b=TOURS.find(t=>t.id===id);if(!b)return;
+ const x=TXT(id),t=T().labs;
+ const msg=fill(t.waT,{title:x.title,duration:''});
+ const routeLabel=(LANG==='en'?'City':LANG==='kz'?'Қала':'Город');
+ const askLabel=(LANG==='en'?'Discuss this route on WhatsApp':LANG==='kz'?'Осы маршрутты WhatsApp-та талқылау':'Обсудить этот маршрут в WhatsApp');
+ $("modalCard").innerHTML=
+ '<button class="icon-btn modal-close" aria-label="Close" data-close>'+IC.x+'</button>'+
+ '<div class="modal-grid"><div class="modal-img">'+imgHTML(b.img,b.fallback,x.title,false)+
+ '<div class="modal-img-cap"><p class="m-region">'+IC.pin+x.start+'</p><h3 class="m-title">'+x.title+'</h3></div></div>'+
+ '<div class="modal-body"><p class="m-tag">'+x.tagline+'</p>'+
+ '<div class="m-params">'+
+ '<div class="kv"><label>'+routeLabel+'</label><span class="v">'+IC.pin+x.start+'</span></div>'+
+ '</div>'+
+ '<p class="m-h">'+t.waits+'</p><ul class="hl-list">'+x.highlights.map(h=>'<li>'+IC.chev+h+'</li>').join('')+'</ul>'+
+ '<p class="m-h">'+t.program+'</p>'+x.itinerary.map(d=>'<div class="it-day"><p class="it-t">'+d.day+' — <b>'+d.t+'</b></p><p class="it-p">'+d.p+'</p></div>').join('')+
+ '<div class="inc">'+x.included.map(i=>'<span>'+IC.check+i+'</span>').join('')+'</div>'+
+ '<p class="modal-note">'+t.disclaimer+'</p>'+
+ '<div class="price-cta"><p class="request-title">'+askLabel+'</p>'+
+ '<a class="btn btn-gold" href="'+WA_HREF(msg)+'" target="_blank" rel="noopener noreferrer">'+IC.wa+t.book+'</a></div>'+
+ '</div></div>';
+ $("modal").classList.add("open");
+ $("modal").setAttribute('role','dialog');$("modal").setAttribute('aria-modal','true');
+ document.body.style.overflow="hidden";
+ $("modalCard").querySelector('[data-close]').focus();
+}
+function closeModal(){ $("modal").classList.remove("open"); document.body.style.overflow=""; }
+
+/* ================= АНИМАЦИИ ПОЯВЛЕНИЯ ================= */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:0.12,rootMargin:"0px 0px -40px 0px"});
+function bindReveals(){ document.querySelectorAll(".rv:not(.in)").forEach((el,i)=>{el.style.transitionDelay=(i%6*0.06)+"s";io.observe(el)}); }
+
+/* ================= РЕНДЕР ВСЕГО ================= */
+function renderAll(){
+ document.documentElement.lang=LANG==="kz"?"kk":LANG;
+ document.title=T().title;
+ renderLangSwitches();renderNav();renderHero();renderMarquee();renderFilters();
+ renderCountries();renderTours();renderPlanner();renderNature();renderFaq();renderContacts();renderCredits();
+ bindReveals();
+}
+
+/* ================= СОБЫТИЯ ================= */
+document.addEventListener("click",e=>{
+ const lg=e.target.closest("[data-lang]");
+ if(lg){LANG=lg.dataset.lang;localStorage.setItem("ct-lang",LANG);closeModal();renderAll();return;}
+ const country=e.target.closest("[data-country]");
+ if(country){FILTER=country.dataset.country;renderFilters();renderTours();bindReveals();document.getElementById('tours').scrollIntoView({behavior:'smooth',block:'start'});return;}
+ const f=e.target.closest("[data-filter]");
+ if(f){FILTER=f.dataset.filter;renderFilters();renderTours();bindReveals();return;}
+ const pc=e.target.closest("[data-plan-country]");
+ if(pc){PLAN_COUNTRY=pc.dataset.planCountry;PLAN_SELECTED=[];renderPlanner();bindReveals();return;}
+ const place=e.target.closest("[data-place]");
+ if(place){
+   const id=place.dataset.place;
+   PLAN_SELECTED=PLAN_SELECTED.includes(id)?PLAN_SELECTED.filter(x=>x!==id):[...PLAN_SELECTED,id];
+   renderPlanner();
+   return;
+ }
+ const rem=e.target.closest("[data-remove-place]");
+ if(rem){PLAN_SELECTED=PLAN_SELECTED.filter(x=>x!==rem.dataset.removePlace);renderPlanner();return;}
+ if(e.target.id==="plannerReset"){PLAN_SELECTED=[];renderPlanner();return;}
+ const card=e.target.closest("[data-card]");
+ if(card){openModal(card.dataset.card);return;}
+ const q=e.target.closest(".faq-q");
+ if(q){
+   const item=q.parentElement,ans=item.querySelector(".faq-a"),open=item.classList.contains("open");
+   document.querySelectorAll(".faq-item.open").forEach(el=>{el.classList.remove("open");el.querySelector(".faq-a").style.maxHeight="0"});
+   if(!open){item.classList.add("open");ans.style.maxHeight=ans.scrollHeight+"px";}
+   return;
+ }
+ if(e.target.closest("[data-close]")||e.target.id==="modal"){closeModal();return;}
+ const mmLink=e.target.closest(".mm-nav a");
+ if(mmLink){$("mobileMenu").classList.remove("open");document.body.style.overflow="";return;}
+});
+$("burger").addEventListener("click",()=>{$("mobileMenu").classList.add("open");document.body.style.overflow="hidden"});
+$("mmClose").addEventListener("click",()=>{$("mobileMenu").classList.remove("open");document.body.style.overflow=""});
+document.addEventListener("keydown",e=>{if((e.key==="Enter"||e.key===" ")&&document.activeElement?.matches(".card[data-card]")){e.preventDefault();openModal(document.activeElement.dataset.card);return;}if(e.key==="Escape"){closeModal();$("mobileMenu").classList.remove("open");document.body.style.overflow=""}});
+
+/* статичные иконки */
+$("brandMark").innerHTML=IC.mountain;
+$("brandMark2").innerHTML=IC.mountain;
+$("burger").innerHTML=IC.menu;
+$("mmClose").innerHTML=IC.x;
+$("phoneIc").innerHTML=IC.phone;
+$("shArr").innerHTML=IC.down;
+
+/* шапка и параллакс */
+const heroImg=$("heroImg");const colA=$("colA");const colB=$("colB");const natSec=$("nature");
+let ticking=false;
+function onScroll(){
+  const y=window.scrollY;
+  $("nav").classList.toggle("scrolled",y>40);
+  if(heroImg&&y<window.innerHeight*1.2){heroImg.parentElement.style.transform="translateY("+(y*0.22)+"px)"}
+  if(natSec){
+    const r=natSec.getBoundingClientRect();const vh=window.innerHeight;
+    const p=Math.min(1,Math.max(0,(vh-r.top)/(vh+r.height)));
+    colA.style.transform="translateY("+(60-(p*120))+"px)";
+    colB.style.transform="translateY("+(100-(p*200))+"px) rotate(2deg)";
+  }
+  ticking=false;
+}
+window.addEventListener("scroll",()=>{if(!ticking){requestAnimationFrame(onScroll);ticking=true}},{passive:true});
+
+/* старт */
+renderAll();
+onScroll();
+</script>
+</body>
+</html>
