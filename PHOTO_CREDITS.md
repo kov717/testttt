@@ -9,9 +9,8 @@
 | Чимган / Чарвак | Dan Lundberg | [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/) | https://commons.wikimedia.org/wiki/File:Uzbekistan_Chimgan_Mountains.jpg |
 | Иссык-Куль | Bgag | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | https://commons.wikimedia.org/wiki/File:Lake_Issyk-Kul,_Kyrgyzstan.jpg |
 | Сон-Куль | Ninara | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/) | https://commons.wikimedia.org/wiki/File:Song-Kul,_Kyrgyzstan_(43670184405).jpg |
+| Искандеркуль | Emad Nemati | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | https://commons.wikimedia.org/wiki/File:Iskenderkul.jpg |
+| Памирские горы | AmanovDmitry | [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/) | https://commons.wikimedia.org/wiki/File:Pamir_Mountains_panorama.jpg |
 | Ала-Арча | Aiyanakk | [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) | https://commons.wikimedia.org/wiki/File:Ala-Archa_National_Park_in_Kyrgyzstan.jpg |
-| Кратер Дарваза | Kalpak Travel | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | https://commons.wikimedia.org/wiki/File:Turkmenistan_gas_crater_at_night.jpg |
-| Древний Мерв | P. Hughes | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | https://commons.wikimedia.org/wiki/File:Turkmenistan_-_Sultan_Sanjar_mausoleum.jpg |
-| Ашхабад | Kalpak Travel | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | https://commons.wikimedia.org/wiki/File:Turkmenistan_Ashgabat_city.jpg |
 
 В HTML изображения оформлены как внешняя загрузка с резервным SVG. При публикации сайта убедитесь в соблюдении условий каждой лицензии и доступности конкретных URL. Исходные фотографии (Казахстан) поставлены заказчиком; их лицензии не устанавливались.
